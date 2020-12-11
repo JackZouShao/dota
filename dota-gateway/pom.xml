@@ -9,15 +9,10 @@
     </parent>
     <groupId>com.alex</groupId>
     <artifactId>dota-gateway</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>dota-gateway</name>
     <description>gateway for data</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
 
         <!-- eureka-client -->
         <dependency>

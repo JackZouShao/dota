@@ -1,0 +1,5 @@
+#context-path
+server:
+  servlet:
+    context-path: /api
+# x: dev

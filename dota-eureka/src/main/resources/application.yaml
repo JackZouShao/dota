@@ -1,0 +1,18 @@
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: localhost
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 6000
+    peer-node-connect-timeout-ms: 90000
+    response-cache-update-interval-ms: 5000
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: dota-eureka

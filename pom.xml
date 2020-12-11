@@ -60,18 +60,13 @@
                 <version>1.2.33</version>
             </dependency>
 
-
             <!-- Swagger -->
             <dependency>
                 <groupId>com.spring4all</groupId>
                 <artifactId>swagger-spring-boot-starter</artifactId>
                 <version>1.9.1.RELEASE</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>swagger-bootstrap-ui</artifactId>
-                <version>1.9.6</version>
-            </dependency>
+
 
             <!-- jwt -->
             <dependency>

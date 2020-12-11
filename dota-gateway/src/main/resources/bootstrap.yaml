@@ -1,0 +1,23 @@
+server:
+  port: 8087
+
+#eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
+#config service
+spring:
+  application:
+    name: dota-gateway
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: dota-gateway
+      profile: ${spring.profiles.active} #  服务环境名称  例如 {name}-{profile} = dota-gateway-dev.yml
+      label: master
+      discovery:
+        enabled: true # 开启配置信息发现 从eureka中获取配置中心信息
+        service-id: dota-config # 指定配置中心的service-id，便于扩展为高可用配置集群

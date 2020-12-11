@@ -1,0 +1,33 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: dota-config
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        bootstrap: true
+        native:
+          default-label: master # # label: master #获取配置文件的分支，默认是master。如果是是本地获取的话，则无用。或者在config中配置default-label
+          search-locations: classpath:/config.master/
+#  　/{application}/{profile}/[{label}]
+#  　/{application}-{profile}.yml
+#  　/{application}-{profile}.properties
+#  　/{label}/{application}-{profile}.properties　/{label}/{application}-{profile}.yaml
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri:
+#          username:
+#          password:
+#           git:  配置文件从git读取到本地存放的配置路径
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true
+
