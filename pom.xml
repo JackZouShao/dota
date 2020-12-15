@@ -17,17 +17,18 @@
     <modules>
         <module>dota-common</module>
         <module>dota-config</module>
-        <module>dota-core</module>
         <module>dota-eureka</module>
+<!--        <module>dota-user</module>-->
         <module>dota-gateway</module>
         <module>dota-util</module>
+        <module>dota-user</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>15</java.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
     </properties>
     <developers>
         <developer>
