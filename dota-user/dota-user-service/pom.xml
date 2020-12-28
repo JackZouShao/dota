@@ -13,8 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>dota-user-service</name>
     <description>Demo project for Spring Boot</description>
-
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
