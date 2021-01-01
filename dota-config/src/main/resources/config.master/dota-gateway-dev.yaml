@@ -2,4 +2,4 @@
 server:
   servlet:
     context-path: /api
-# x: dev
+x: dev
