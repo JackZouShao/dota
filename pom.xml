@@ -47,11 +47,11 @@
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>2.2.3.RELEASE</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--                <version>2.2.3.RELEASE</version>-->
+<!--            </dependency>-->
 
             <!-- public dependency -->
             <dependency>
@@ -150,12 +150,6 @@
         </plugins>
     </build>
 
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>spring-milestones</id>-->
-<!--            <name>Spring Milestones</name>-->
-<!--            <url>https://repo.spring.io/milestone</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+
 
 </project>

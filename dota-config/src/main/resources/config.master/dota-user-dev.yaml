@@ -1,0 +1,4 @@
+server:
+  servlet:
+    context-path: /dota-user-dev
+  port: 8081
