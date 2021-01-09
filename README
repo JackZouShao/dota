@@ -1,0 +1,9 @@
+### 服务组件
+1. service register & config center ： eureka
+2. Service invocation: Feign
+3. Service Circuit Breaking ： Alibaba Sentinel
+4. Service Gate: Spring Gate Way
+5. Service Config Center: Spring Config Center integrate into Eureka 
+6. Tracing Analysis: Sleuth
+9. Message Broker: Spring Cloud Stream
+10. Message BUS: SpringCloud bus
