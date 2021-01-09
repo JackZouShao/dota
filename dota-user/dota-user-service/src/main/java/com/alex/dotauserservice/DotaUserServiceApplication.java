@@ -16,19 +16,19 @@ public class DotaUserServiceApplication implements CommandLineRunner {
 
 
 
-//    @Value("${test}")
-//    private String test;
-//    @Value("${v}")
-//    private String v;
-//
-//    @Value("${x}")
-//    private String x;
+    @Value("${test}")
+    private String test;
+    @Value("${v}")
+    private String v;
+
+    @Value("${x}")
+    private String x;
 
 
     @Override
     public void run(String... args) throws Exception {
-//        System.out.println(test);
-//        System.out.println(v);
-//        System.out.println(x);
+        System.out.println(test);
+        System.out.println(v);
+        System.out.println(x);
     }
 }
