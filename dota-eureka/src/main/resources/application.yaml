@@ -3,6 +3,7 @@ server:
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
   server:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 6000 # 剔除服务时间间隔
@@ -11,7 +12,14 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
+      # 配置默认节点有信息，这里是获取本机的ip和端口来实现，如果不配置，默认会找8761端口，这里配置的是8080端口，因此会报错
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+---
 spring:
   application:
-    name: dota-eureka
+    # 服务名称，更关键，使用feign进行服务消费将以此为依据
+    name: dotaeureka
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
