@@ -27,7 +27,6 @@
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-starter-netflix-archaius</artifactId>
                 </exclusion>
-
                 <exclusion>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-starter-ribbon</artifactId>

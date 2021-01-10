@@ -18,8 +18,10 @@ eureka:
 spring:
   application:
     # 服务名称，更关键，使用feign进行服务消费将以此为依据
-    name: dotaeureka
+    name: dota-eureka
   cloud:
     loadbalancer:
       ribbon:
         enabled: false
+    inetutils:
+      timeout-seconds: 2

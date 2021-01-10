@@ -19,6 +19,8 @@ spring:
         native:
           default-label: master # # label: master #获取配置文件的分支，默认是master。如果是是本地获取的话，则无用。或者在config中配置default-label
           search-locations: classpath:/config.master/
+    inetutils:
+      timeout-seconds: 2
 #  　/{application}/{profile}/[{label}]
 #  　/{application}-{profile}.yml
 #  　/{application}-{profile}.properties

@@ -14,14 +14,10 @@ public class DotaConfigApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(DotaConfigApplication.class, args);
     }
-    @Value("${test}")
-    private String test;
-    @Value("${v}")
-    private String v;
+
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(test);
-        System.out.println(v);
+
     }
 }
