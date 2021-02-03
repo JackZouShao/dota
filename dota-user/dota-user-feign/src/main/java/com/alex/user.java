@@ -1,5 +1,9 @@
 package com.alex;
 
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -23,28 +27,86 @@ class ListNode {
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode header = new ListNode();
-        int temp = 0;
+
+        ListNode res;
+        ListNode cursor = res = new ListNode();
+        int carry = 0;
         for(;;){
 
-            int val1 = (l1.next == null) ? -1 : l1.val;
-            int val2 = (l2.next == null) ? -1 : l2.val;
-            if((val1 + val2 + temp) < 0) {
-                return null;
+            int val1 = (l1 == null) ? 0 : l1.val;
+            int val2 = (l2 == null) ? 0 : l2.val;
+            carry = val1 + val2 + carry;
+            cursor.next = new ListNode(carry % 10);
+            cursor = cursor.next;
+            carry = carry / 10;
+            if(carry !=0 ) cursor.next = new ListNode(carry);
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
+            if(l1 == null && l2 ==null){
+                break;
             }
-            temp = l1.val + l2.val;
-            System.out.println(temp * 10);
-
         }
+        return res.next;
+    }
+
+    public int lengthOfLongestSubstring(String s) {
+
+        char[] array = s.toCharArray();
+        int length = array.length;
+        int res = 0;
+        int index = 0;
+        loopA:
+        for (int i = 0; i < length ; i++) {
+            for (int j = 1; j < length; j++) {
+                if (array[j] != array[i]) {
+                    res++;
+                    continue  ;
+                }
+                if (res > index) {
+                    index = res;
+                }
+                res = 0;
+                break loopA;
+            }
+        }
+        return index + 1;
+    }
+
+
+    public void test(){
+        int length = lengthOfLongestSubstring("pewwpew");
+        System.out.println(length);
     }
 
     public static void main(String[] args) {
-        ListNode listNode = new ListNode();
-        listNode.val = 2;
-        for (int i = 8; i > 7 ; i--) {
-            listNode.next = new ListNode(i);
-            listNode = listNode.next;
+        new Solution().test();
+
+
+
+//        ListNode listNode = new ListNode();
+//        ListNode cursor = listNode;
+//        listNode.val = 2;
+//        for (int i = 8; i > 4 ; i--) {
+//            cursor.next = new ListNode(i);
+//            cursor = cursor.next;
+//        }
+//        ListNode listNode1 = new ListNode(5);
+//
+//       ListNode res = new Solution().addTwoNumbers(listNode, listNode);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        for (int i=1; i<=10; i++) {
+            System.out.println("i = " + i);
+            for (int j=i+1; j<=10; j++) {
+                System.out.println("j = " + j);
+                if (j >= i) {
+                    break;
+                }
+            }
+            // break跳到这里
+            System.out.println("breaked");
         }
-        new Solution().addTwoNumbers(listNode, listNode);
     }
 }

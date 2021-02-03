@@ -7,15 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 @SpringCloudApplication
-public class DotaUserServiceApplication implements CommandLineRunner {
+public class DotaUserServiceApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(DotaUserServiceApplication.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-
     }
 }

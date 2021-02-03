@@ -9,17 +9,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
 @EnableConfigServer
-public class DotaConfigApplication implements CommandLineRunner {
-
+public class DotaConfigApplication {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(DotaConfigApplication.class, args);
-        Thread.sleep(1000);
-    }
-
-
-    @Override
-    public void run(String... args) throws Exception {
-        Thread.currentThread().setDaemon(true);
-
     }
 }

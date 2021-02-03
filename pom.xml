@@ -29,12 +29,14 @@
         <java.version>15</java.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
     </properties>
+
     <developers>
         <developer>
             <name>Thomas</name>
             <email>q@qq.com</email>
         </developer>
     </developers>
+
 
     <dependencyManagement>
         <dependencies>
@@ -67,13 +69,18 @@
                 <scope>provided</scope>
             </dependency>
 
-            <!-- Swagger -->
+            <!--swagger2-->
             <dependency>
-                <groupId>com.spring4all</groupId>
-                <artifactId>swagger-spring-boot-starter</artifactId>
-                <version>1.9.1.RELEASE</version>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
 
             <!-- jwt -->
             <dependency>
@@ -131,8 +138,6 @@
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>2.3.1</version>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 
