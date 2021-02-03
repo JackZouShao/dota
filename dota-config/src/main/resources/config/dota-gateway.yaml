@@ -1,5 +1,0 @@
-#context-path
-server:
-  servlet:
-    context-path: /api11
-x: x

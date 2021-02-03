@@ -16,8 +16,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>dota-common</module>
-        <module>dota-config</module>
-        <module>dota-eureka</module>
         <module>dota-gateway</module>
         <module>dota-util</module>
         <module>dota-user</module>
@@ -54,7 +52,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- caffeine -->
             <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>
