@@ -20,10 +20,10 @@ spring:
     gateway:
       routes:
         - id: dota-user-service
-          uri: htttp://localhost:8081
+#          uri: http://localhost:8081
+          uri: lb://dota-user-service
           predicates:
-     #       - Path=/red/{segment},/blue/{segment}
-            - Path=/dota-user-service/**
+            - Path=/login/**
 management:
   endpoints:
     web:
