@@ -20,12 +20,17 @@ spring:
     gateway:
       routes:
         - id: dota-user-service
-#          uri: http://localhost:8081
           uri: lb://dota-user-service
           predicates:
-            - Path=/login/**
-management:
-  endpoints:
-    web:
-      exposure:
-        include=*:
+            - Path=/user/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
+        - id: service-order
+          uri: lb://dota-user-order
+          predicates:
+            - Path=/order/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
+

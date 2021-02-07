@@ -7,7 +7,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 @Api("用户模块")
-@RequestMapping(value = "/login")
 @RestController
 @RefreshScope
 public class LoginController {
@@ -16,16 +15,14 @@ public class LoginController {
     private String x;
 
 
-    @ApiOperation(value = "test", tags = "tags", notes = "notes")
+    @ApiOperation(value = "test", notes = "notes")
     @ApiImplicitParams({
             @ApiImplicitParam(value = "s", dataType = "string", defaultValue = "123"),
             @ApiImplicitParam(value = "s2", dataType = "string",defaultValue = "sss")
     })
-    @GetMapping(value = "/test", params = {"s", "s2"})
-    public String test(String s, String s2){
+    @GetMapping(value = "/test")
+    public String test(){
         System.out.println(x);
-        System.out.println(s);
-        System.out.println(s2);
         return ("123");
     }
 
