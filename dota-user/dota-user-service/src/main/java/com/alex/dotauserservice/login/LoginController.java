@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api("用户模块")
 @RestController
+@RequestMapping("/login")
 @RefreshScope
 public class LoginController {
 
