@@ -28,7 +28,31 @@
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <knife4j.version>2.0.8</knife4j.version>
         <swagger.version>2.10.1</swagger.version>
+        <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
+        <spring-boot-dependencies.version>2.2.10.RELEASE</spring-boot-dependencies.version>
     </properties>
+
+    <!-- 环境变量 -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+            </properties>
+        </profile>
+    </profiles>
 
     <developers>
         <developer>
@@ -145,16 +169,21 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-dependencies.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
-
-
 
 </project>

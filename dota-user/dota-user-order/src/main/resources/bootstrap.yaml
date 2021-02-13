@@ -1,0 +1,15 @@
+server:
+  port: 7771
+#config service
+spring:
+  application:
+    name: dota-user-order
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.98.220.75:8848
+    config:
+      server-addr: 39.98.220.75:8848
+      file-extension: yaml

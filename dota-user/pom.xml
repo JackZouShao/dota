@@ -15,11 +15,13 @@
     <modules>
         <module>dota-user-feign</module>
         <module>dota-user-service</module>
+        <module>dota-user-order</module>
     </modules>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
+
 
 </project>

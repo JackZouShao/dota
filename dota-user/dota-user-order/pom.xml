@@ -7,11 +7,14 @@
         <groupId>com.alex</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.dota</groupId>
+
+    <groupId>com.alex</groupId>
     <artifactId>dota-user-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dota-user-order</name>
+
     <description>Demo project for Spring Boot</description>
+
     <properties>
         <java.version>15</java.version>
     </properties>
@@ -44,6 +47,16 @@
             <artifactId>knife4j-micro-spring-boot-starter</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alex</groupId>
+            <artifactId>dota-user-feign</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.hibernate.validator</groupId>
@@ -52,11 +65,12 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-test</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
         <!-- hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
