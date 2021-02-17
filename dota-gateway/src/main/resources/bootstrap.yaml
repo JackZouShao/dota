@@ -3,7 +3,7 @@ info:
     host: localhost
     port: 5761
 server:
-  port: 8080
+  port: 8079
 #config service
 spring:
   application:

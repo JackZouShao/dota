@@ -19,6 +19,7 @@
         <module>dota-gateway</module>
         <module>dota-util</module>
         <module>dota-user</module>
+        <module>dota-auth</module>
     </modules>
 
     <properties>
@@ -92,11 +93,30 @@
                 <version>2.8.8</version>
             </dependency>
 
+            <!--JWT依赖-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.5.8</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.4</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.liyiorg</groupId>
+                <artifactId>weixin-popular</artifactId>
+                <version>2.8.30</version>
             </dependency>
 
             <!--swagger2-->

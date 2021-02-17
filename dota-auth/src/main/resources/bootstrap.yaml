@@ -1,0 +1,20 @@
+info:
+  server:
+    host: localhost
+    port: 5761
+server:
+  port: 8083
+#config service
+spring:
+  application:
+    name: dota-auth
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.98.220.75:8848
+      config:
+        server-addr: 39.98.220.75:8848
+        file-extension: yaml
+
