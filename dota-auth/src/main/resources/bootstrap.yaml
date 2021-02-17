@@ -1,7 +1,3 @@
-info:
-  server:
-    host: localhost
-    port: 5761
 server:
   port: 8083
 #config service
@@ -18,3 +14,6 @@ spring:
         server-addr: 39.98.220.75:8848
         file-extension: yaml
 
+wechat:
+  appId: qwe
+  appSecret: 123

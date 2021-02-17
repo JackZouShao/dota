@@ -1,6 +1,7 @@
 package com.alex.common.util;
 
 
+import com.alex.common.constants.HttpStatusCode;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,13 +26,35 @@ public class RJson<T> {
     private T data;
 
     public static <T> RJson<T> ok(){
-        return createRJson();
+        return createRJson(HttpStatusCode.SUCCESS, null, null);
     }
 
-    private static <T> RJson<T> createRJson(){
+    public static <T> RJson<T> ok(T data){
+        return createRJson(HttpStatusCode.SUCCESS, null, data);
+    }
 
-        RJson rJson = new RJson();
+    public static <T> RJson<T> ok(T data, String msg){
+        return createRJson(HttpStatusCode.SUCCESS, msg, data);
+    }
 
+    public static <T> RJson<T> failed(){
+        return createRJson(HttpStatusCode.FAILED, null, null);
+    }
+
+    public static <T> RJson<T> failed(String msg){
+        return createRJson(HttpStatusCode.FAILED, msg, null);
+    }
+
+    public static <T> RJson<T> failed(T data){
+        return createRJson(HttpStatusCode.FAILED, null, data);
+    }
+
+    public static <T> RJson<T> failed(T data, String msg){
+        return createRJson(HttpStatusCode.FAILED, msg, data);
+    }
+
+    private static <T> RJson<T> createRJson(int code, String msg, T data){
+        RJson rJson = new RJson(msg, code, data);
         return rJson;
     }
 
