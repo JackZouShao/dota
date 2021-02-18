@@ -25,10 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginProcessingUrl("/auth/login").permitAll() // 允许登录url
-
-                .and().authorizeRequests().antMatchers("/oauth/*").permitAll() // 允许认证url
-                .anyRequest().authenticated() //其它地址需要认证
-                .and().csrf().disable(); // 跨域禁止
+        http.authorizeRequests().anyRequest().permitAll().and().logout().permitAll();
+//                .and().authorizeRequests().antMatchers("/oauth/*").permitAll() // 允许认证url
+//                .and().csrf().disable(); // 跨域禁止
     }
 }

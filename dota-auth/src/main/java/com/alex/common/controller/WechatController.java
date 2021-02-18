@@ -4,6 +4,7 @@ import com.alex.common.util.RJson;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,17 +24,16 @@ public class WechatController {
     @Value("${wechat.appSecret}")
     private String appSecret;
 
+    @ApiOperation("获取token")
     @GetMapping("/token")
-    public RJson<String> getToken(){
+    public RJson<Token> getToken(){
 
-        // 获取Code
+        // token
         Token token = TokenAPI.token(appId, appSecret);
-        // 用code获取token
 
         // 将用户信息包装成JWT
         JwtBuilder jwtBuilder = Jwts.builder();
-
-        return RJson.ok();
+        return RJson.ok(token);
     }
 
 }
