@@ -22,7 +22,7 @@ public class Swagger {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis( RequestHandlerSelectors.basePackage("com.alex.dota.feign"))
+                .apis( RequestHandlerSelectors.basePackage("com.alex.common"))
                 .paths( PathSelectors.any())
                 .build();
     }

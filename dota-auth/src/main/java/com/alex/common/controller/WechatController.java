@@ -13,6 +13,8 @@ import weixin.popular.api.ComponentAPI;
 import weixin.popular.api.TokenAPI;
 import weixin.popular.bean.token.Token;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 @Api("Wechat 第三方登录相关处理类")
 @RestController
 @RequestMapping("/wechat")
@@ -24,13 +26,13 @@ public class WechatController {
     @Value("${wechat.appSecret}")
     private String appSecret;
 
-    @ApiOperation("获取token")
+    @ApiOperation("获取微信token")
     @GetMapping("/token")
     public RJson<Token> getToken(){
 
         // token
         Token token = TokenAPI.token(appId, appSecret);
-
+//        ThreadPoolExecutor.class
         // 将用户信息包装成JWT
         JwtBuilder jwtBuilder = Jwts.builder();
         return RJson.ok(token);
