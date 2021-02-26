@@ -7,7 +7,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 @SpringCloudApplication
 @EnableSwagger2WebMvc
-public class DotaAuthApplication {
+public classDotaAuthApplication {
     public static void main(String[] args) {
         SpringApplication.run(DotaAuthApplication.class);
     }

@@ -8,6 +8,8 @@ public class Test {
         Thread thread2 = new Thread(new B());
         thread.start();
         thread2.start();
+
+
     }
 
     public void sout(){

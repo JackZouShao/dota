@@ -97,6 +97,19 @@
             <artifactId>hutool-all</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.code-disaster.steamworks4j/steamworks4j -->
+        <dependency>
+            <groupId>com.code-disaster.steamworks4j</groupId>
+            <artifactId>steamworks4j</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.code-disaster.steamworks4j/steamworks4j -->
+        <dependency>
+            <groupId>com.code-disaster.steamworks4j</groupId>
+            <artifactId>steamworks4j</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
 
     </dependencies>
 
