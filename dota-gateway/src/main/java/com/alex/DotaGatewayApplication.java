@@ -10,6 +10,5 @@ public class DotaGatewayApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(DotaGatewayApplication.class, args);
-
     }
 }
