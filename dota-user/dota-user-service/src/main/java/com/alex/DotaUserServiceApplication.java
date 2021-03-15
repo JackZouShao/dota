@@ -8,9 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringCloudApplication
 @EnableFeignClients
 public class DotaUserServiceApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(DotaUserServiceApplication.class, args);
     }
-
 }

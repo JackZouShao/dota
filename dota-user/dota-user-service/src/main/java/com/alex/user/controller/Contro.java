@@ -1,4 +1,4 @@
-package com.alex.order.controller;
+package com.alex.user.controller;
 
 import com.alex.common.util.RJson;
 import io.swagger.annotations.Api;
@@ -7,17 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-
-@Api("订单")
 @RestController
-@RequestMapping("/test")
-public class Controller {
+@RequestMapping("/123")
+public class Contro {
 
-
-    @ApiOperation("测试feign")
-    @GetMapping("/get")
-    public RJson<String> order(){
-        return null;
+    @GetMapping("/123")
+    public RJson<String> test(){
+        return RJson.failed("123");
     }
 }

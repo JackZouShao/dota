@@ -23,7 +23,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(groupApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.alex.dota.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.alex.order"))
                 .paths(PathSelectors.any())
                 .build();
     }

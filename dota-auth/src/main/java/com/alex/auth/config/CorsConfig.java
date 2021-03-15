@@ -14,8 +14,8 @@ public class CorsConfig {
 
     private static final String ALL = "*";
 
-    @Order(Ordered.HIGHEST_PRECEDENCE)
     @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE)
     public CorsWebFilter corsWebFilter(){
 
         CorsConfiguration config = new CorsConfiguration();
