@@ -23,7 +23,7 @@ import java.util.Map;
 public class SteamApi {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        System.out.println(getUrl("https://pp.vlgcty.com/"));
+        System.out.println(getUrl("https://dota.vlgcty.com/"));
     }
 
     final static String STEAM_LOGIN = "https://steamcommunity.com/openid/login";
