@@ -31,4 +31,6 @@ spring:
             - Path=/order/**
           filters:
             - StripPrefix=1
+      loadbalancer:
+        use404: true
 

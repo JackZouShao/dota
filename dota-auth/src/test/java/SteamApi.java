@@ -32,7 +32,6 @@ public class SteamApi {
      * 组装steam登录url
      *
      * @param returnTo
-     * @param request
      * @return
      * @throws UnsupportedEncodingException
      */

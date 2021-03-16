@@ -18,6 +18,17 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alex</groupId>
+            <artifactId>dota-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -1,6 +1,5 @@
 server:
   port: 7771
-#config service
 spring:
   application:
     name: dota-user-order
@@ -13,3 +12,8 @@ spring:
     config:
       server-addr: 39.98.220.75:8848
       file-extension: yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:

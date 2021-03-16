@@ -2,7 +2,6 @@ package com.alex.common.util;
 
 
 import com.alex.common.constants.HttpStatusCode;
-import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
