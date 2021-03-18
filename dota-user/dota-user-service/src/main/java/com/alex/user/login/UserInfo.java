@@ -2,9 +2,12 @@ package com.alex.user.login;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
 
 @ApiModel("用户")
+@ConstructorBinding
 public class UserInfo {
     public void setId(Integer id) {
         this.id = id;

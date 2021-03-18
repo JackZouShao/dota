@@ -31,6 +31,12 @@ spring:
             - Path=/order/**
           filters:
             - StripPrefix=1
+        - id: dota-auth-service
+          uri: lb://dota-auth-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
       loadbalancer:
         use404: true
 
