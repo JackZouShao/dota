@@ -31,6 +31,7 @@
         <swagger.version>2.10.1</swagger.version>
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
         <spring-boot-dependencies.version>2.2.10.RELEASE</spring-boot-dependencies.version>
+        <dota.version>${version}</dota.version>
     </properties>
 
     <!-- 环境变量 -->
@@ -79,6 +80,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <optional>true</optional>
+            </dependency>
+
+
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>

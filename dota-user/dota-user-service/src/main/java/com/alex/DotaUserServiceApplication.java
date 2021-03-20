@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 @SpringCloudApplication
-@EnableFeignClients
+@EnableFeignClients(value = "com.alex.user.feign.interfaces")
 public class DotaUserServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(DotaUserServiceApplication.class, args);

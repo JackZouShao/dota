@@ -5,6 +5,7 @@ import com.alex.common.constants.HttpStatusCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 响应消息主体
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 public class RJson<T> {
 
 
@@ -50,6 +52,10 @@ public class RJson<T> {
 
     public static <T> RJson<T> failed(T data, String msg){
         return createRJson(HttpStatusCode.FAILED, msg, data);
+    }
+
+    public static <T> RJson<T> failed( String msg, int code){
+        return createRJson(code, msg, null);
     }
 
     private static <T> RJson<T> createRJson(int code, String msg, T data){

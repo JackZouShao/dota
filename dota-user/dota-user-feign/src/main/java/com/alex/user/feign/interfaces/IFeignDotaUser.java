@@ -1,10 +1,11 @@
 package com.alex.user.feign.interfaces;
 
 import com.alex.common.util.RJson;
+import com.alex.user.feign.interfaces.fallback.IFeignDotaUserFallBackFactory;
+import com.alex.user.feign.interfaces.fallback.IFeignDotaUserFallback;
 import com.alex.user.feign.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
  * for basic function
  */
 @Api(tags = "用户模块FeignApi")
-@FeignClient(value = "dota-user-service")
+@FeignClient(value = "dota-user-service", fallback = IFeignDotaUserFallback.class)
 public interface IFeignDotaUser {
 
     @ApiOperation(value = "根据WeChatToken当前登录用户")
-    @RequestMapping(value = "/feign/user/loginByWeChatToken", method = RequestMethod.POST)
+    @ApiImplicitParam(value = "wechat token" ,name = "token", required = true , example = "123", paramType = "body")
+    @RequestMapping(value = "/feign/user/loginByWeChatToken",  method = RequestMethod.POST)
     RJson<UserVo> loginByWechatToken(@RequestBody String token);
 
     @ApiOperation(value = "根据SteamToken当前登录用户")

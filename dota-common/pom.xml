@@ -4,6 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>dota-common-core</module>
+        <module>dota-sentinal-starter</module>
     </modules>
     <parent>
         <artifactId>dota</artifactId>
