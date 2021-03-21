@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * for basic function
  */
 @Api(tags = "用户模块FeignApi")
-@FeignClient(value = "dota-user-service", fallback = IFeignDotaUserFallback.class)
+@FeignClient(value = "dota-user-service", fallbackFactory = IFeignDotaUserFallBackFactory.class, fallback = IFeignDotaUserFallback.class)
 public interface IFeignDotaUser {
 
     @ApiOperation(value = "根据WeChatToken当前登录用户")

@@ -16,6 +16,9 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8080
+feign:
+  sentinel:
+    enabled: true
 wechat:
   appId: wxde8e1ef6402c603e
   appSecret: aa5b13b9949f2b398a6ada37d6ba76e9

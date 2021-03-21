@@ -23,7 +23,7 @@ public class Swagger {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.alex.user"))
+                .apis(RequestHandlerSelectors.basePackage("com.alex.user.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

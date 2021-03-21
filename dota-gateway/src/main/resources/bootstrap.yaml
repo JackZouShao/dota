@@ -19,6 +19,12 @@ spring:
         file-extension: yaml
     gateway:
       routes:
+        - id: dota-auth-service
+          uri: lb://dota-auth-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
         - id: dota-user-service
           uri: lb://dota-user-service
           predicates:
@@ -29,12 +35,6 @@ spring:
           uri: lb://dota-user-order
           predicates:
             - Path=/order/**
-          filters:
-            - StripPrefix=1
-        - id: dota-auth-service
-          uri: lb://dota-auth-service
-          predicates:
-            - Path=/auth/**
           filters:
             - StripPrefix=1
       loadbalancer:

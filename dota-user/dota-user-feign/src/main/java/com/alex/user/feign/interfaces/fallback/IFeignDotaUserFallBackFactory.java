@@ -5,14 +5,16 @@ import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
 import feign.hystrix.FallbackFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class IFeignDotaUserFallBackFactory implements FallbackFactory<IFeignDotaUser> {
     @Override
     public IFeignDotaUser create(Throwable throwable) {
-        System.out.println(throwable);
         return new IFeignDotaUser() {
             @Override
             public RJson<UserVo> loginByWechatToken(String token) {
+                System.out.println("factory");
                 return RJson.failed("FallbackFactory");
             }
 

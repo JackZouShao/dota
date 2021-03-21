@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * IFeignDotaUser 降级接口
  */
 @Component
-@RequestMapping("/fallback")
-public class IFeignDotaUserFallback implements IFeignDotaUser {
+public class IFeignDotaUserFallback implements IFeignDotaUser{
     @Override
     public RJson<UserVo> loginByWechatToken(String token) {
+        System.out.println("IFeignDotaUserFallback");
         return RJson.ok(new UserVo().setUserNo(1l)).setMsg("IFeignDotaUserFallback");
     }
 
