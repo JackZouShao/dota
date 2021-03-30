@@ -5,8 +5,10 @@ import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
 import feign.hystrix.FallbackFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class IFeignDotaUserFallBackFactory implements FallbackFactory<IFeignDotaUser> {
     @Override
@@ -14,7 +16,6 @@ public class IFeignDotaUserFallBackFactory implements FallbackFactory<IFeignDota
         return new IFeignDotaUser() {
             @Override
             public RJson<UserVo> loginByWechatToken(String token) {
-                System.out.println("factory");
                 return RJson.failed("FallbackFactory");
             }
 

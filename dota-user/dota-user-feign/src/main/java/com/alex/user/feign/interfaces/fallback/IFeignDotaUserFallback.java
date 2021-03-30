@@ -4,17 +4,18 @@ import com.alex.common.util.RJson;
 import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * IFeignDotaUser 降级接口
  */
+@Slf4j
 @Component
 public class IFeignDotaUserFallback implements IFeignDotaUser{
     @Override
     public RJson<UserVo> loginByWechatToken(String token) {
-        System.out.println("IFeignDotaUserFallback");
         return RJson.ok(new UserVo().setUserNo(1l)).setMsg("IFeignDotaUserFallback");
     }
 

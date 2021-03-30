@@ -29,15 +29,10 @@ public class WechatController {
     @Value("${wechat.appSecret}")
     private String appSecret;
 
-
-    private final IFeignDotaUser iFeignDotaUser;
-
     @ApiOperation("获取微信token")
     @RequestMapping(value = "/token", method = RequestMethod.GET)
     public RJson<Token> getToken(){
-//        Token token = TokenAPI.token(appId, appSecret);
-        RJson<UserVo> userVoRJson = iFeignDotaUser.loginByWechatToken("12");
-        System.out.println(userVoRJson.toString());
-        return RJson.ok(new Token());
+        Token token = TokenAPI.token(appId, appSecret);
+        return RJson.ok(token);
     }
 }
