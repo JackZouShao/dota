@@ -36,7 +36,6 @@ public class SteamController {
 			log.error("获取 steam token 错误");
 			throw new BusinessException("获取 steam token 错误");
 		}
-		throw new BusinessException("获取 steam token 错误");
-//		return RJson.ok(token);
+		return RJson.ok(token);
 	}
 }

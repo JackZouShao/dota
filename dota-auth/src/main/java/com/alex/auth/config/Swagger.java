@@ -15,7 +15,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 @Configuration
 @EnableSwagger2WebMvc
-//@Import(BeanValidatorPluginsConfiguration.class)
 public class Swagger {
 
     @Bean

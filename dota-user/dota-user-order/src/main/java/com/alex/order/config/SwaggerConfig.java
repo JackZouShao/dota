@@ -14,9 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 @Configuration
 @EnableSwagger2WebMvc
-@Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
-
 
     @Bean
     public Docket createRestApi() {
@@ -30,8 +28,8 @@ public class SwaggerConfig {
 
     private ApiInfo groupApiInfo(){
         return new ApiInfoBuilder()
-                .title("Dota API INOF")
-                .description("五四书组长高秋")
+                .title("Dota API INFO")
+                .description("m")
                 .termsOfServiceUrl("http://www.google.com")
                 .version("1.0")
                 .build();

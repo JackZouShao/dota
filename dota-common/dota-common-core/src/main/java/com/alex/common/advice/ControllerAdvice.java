@@ -13,7 +13,7 @@ public class ControllerAdvice {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(value = BusinessException.class)
     public RJson handleBusinessException(BusinessException businessException){
-        System.out.println("Controller  Advice");
+        System.out.println("Controller Advice");
         return  RJson.failed(businessException.getMessage(), businessException.getExceptionCode());
     }
 }

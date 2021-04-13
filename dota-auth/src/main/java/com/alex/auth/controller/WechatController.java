@@ -17,7 +17,7 @@ import weixin.popular.bean.token.Token;
 
 import javax.annotation.Resource;
 
-@Api("Wechat 第三方登录相关处理类")
+@Api(tags = "Wechat 第三方登录相关处理类")
 @RestController
 @RequestMapping("/wechat")
 @RequiredArgsConstructor
@@ -35,9 +35,7 @@ public class WechatController {
     @ApiOperation("获取微信token")
     @RequestMapping(value = "/token", method = RequestMethod.GET)
     public RJson<Token> getToken(){
-//        Token token = TokenAPI.token(appId, appSecret);
-        RJson<UserVo> userVoRJson = iFeignDotaUser.loginByWechatToken("12");
-        System.out.println(userVoRJson.toString());
-        return RJson.ok(new Token());
+        Token token = TokenAPI.token(appId, appSecret);
+        return RJson.ok(token);
     }
 }
