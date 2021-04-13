@@ -17,7 +17,7 @@ import weixin.popular.bean.token.Token;
 
 import javax.annotation.Resource;
 
-@Api("Wechat 第三方登录相关处理类")
+@Api(tags = "Wechat 第三方登录相关处理类")
 @RestController
 @RequestMapping("/wechat")
 @RequiredArgsConstructor

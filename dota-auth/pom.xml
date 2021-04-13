@@ -25,6 +25,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.facebook.presto</groupId>
+            <artifactId>presto-jdbc</artifactId>
+            <version>0.248</version>
+        </dependency>
+
+
         <!-- starter oauth2 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
