@@ -57,7 +57,7 @@
 
         <dependency>
             <groupId>com.alex</groupId>
-            <artifactId>dota-sentinal-starter</artifactId>
+            <artifactId>dota-sentinel-starter</artifactId>
             <version>${version}</version>
         </dependency>
 

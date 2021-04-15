@@ -4,14 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>dota-common-core</module>
-        <module>dota-sentinal-starter</module>
+        <module>dota-sentinel-starter</module>
     </modules>
     <parent>
         <artifactId>dota</artifactId>
         <groupId>com.alex</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.alex</groupId>
     <artifactId>dota-common</artifactId>
     <name>dota-common</name>
     <description>common module for dota</description>

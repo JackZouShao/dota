@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>dota-sentinal-starter</artifactId>
+    <artifactId>dota-sentinel-starter</artifactId>
     <description>降级 熔断 限流 组件</description>
 
     <dependencies>
