@@ -4,14 +4,13 @@ import com.alex.common.exceptions.BusinessException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.List;
 
 public class Demo {
 
     public static void main(String[] args) throws IllegalAccessException {
-        Class clazz = BusinessException.class;
+        Class<BusinessException> clazz = BusinessException.class;
         BusinessException businessException = new BusinessException("1");
         Field[] declaredFields = clazz.getDeclaredFields();
         for (Field declaredField : declaredFields) {
@@ -32,7 +31,7 @@ public class Demo {
     }
 
     public void t1(List<BusinessException> list){
-        list.stream().forEach(e ->{
+        list.forEach(e ->{
 
         });
 

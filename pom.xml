@@ -20,6 +20,7 @@
         <module>dota-util</module>
         <module>dota-user</module>
         <module>dota-auth</module>
+        <module>dota-bigadata</module>
     </modules>
 
     <properties>

@@ -38,7 +38,7 @@ public class SteamApi {
      */
     public static String getUrl(String returnTo) throws UnsupportedEncodingException {
 
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params;
         params = new HashMap<String, String>();
         // String loginTicket = request.getAttribute("loginTicket")==null ? "" :
         // "?lt="+ request.getAttribute("loginTicket").toString();
