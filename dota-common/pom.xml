@@ -5,6 +5,7 @@
     <modules>
         <module>dota-common-core</module>
         <module>dota-sentinel-starter</module>
+        <module>dota-cache</module>
     </modules>
     <parent>
         <artifactId>dota</artifactId>
