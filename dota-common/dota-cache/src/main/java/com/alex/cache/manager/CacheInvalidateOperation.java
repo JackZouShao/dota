@@ -2,6 +2,7 @@ package com.alex.cache.manager;
 
 import com.alex.cache.CacheUtils;
 import com.alex.cache.annotation.CacheGet;
+import com.alex.cache.annotation.CacheInvalidate;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -9,16 +10,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.util.StringUtils;
 
-import java.lang.annotation.Annotation;
-
 /**
  * @version 1.0.0
- * @className CacheGetOperation.java
+ * @className CacheInvalidateOpeartion.java
  * @author: yz
- * @date: 2021/5/13 20:12
+ * @date: 2021/5/14 14:03
  */
 @Slf4j
-public class CacheGetOperation implements CacheOperation {
+public class CacheInvalidateOperation implements CacheOperation {
 
     @Override
     public Object cache(JoinPoint joinPoint) {
@@ -27,7 +26,7 @@ public class CacheGetOperation implements CacheOperation {
         var method = signature.getMethod();
 
         Class<?> returnType = method.getReturnType();
-        CacheGet annotation = method.getAnnotation(CacheGet.class);
+        CacheInvalidate annotation = method.getAnnotation(CacheInvalidate.class);
 
         var annotationParam = getParam(annotation);
         String key = CacheUtils.parseSpel(method, proceedingJoinPoint.getArgs(), annotationParam.getKey(), String.class, "");
@@ -36,7 +35,7 @@ public class CacheGetOperation implements CacheOperation {
         var value = "";
         Object result;
         if(!StringUtils.isEmpty(value)){
-           return JSON.parseObject(value, returnType);
+            return JSON.parseObject(value, returnType);
         }
 
         try {
@@ -49,7 +48,7 @@ public class CacheGetOperation implements CacheOperation {
         return result;
     }
 
-    private AnnotationParam getParam(CacheGet annotation){
+    private AnnotationParam getParam(CacheInvalidate annotation){
         return AnnotationParam.builder()
                 .prefix(annotation.prefix())
                 .key(annotation.key())

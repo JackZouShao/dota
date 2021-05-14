@@ -29,7 +29,6 @@ public class Lambda {
 
 		EnumSet<Top> tops = EnumSet.allOf(Top.class);
 		tops.forEach(System.out::println);
-		tops.retainAll()
 	}
 }
 

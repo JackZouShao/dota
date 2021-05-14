@@ -176,7 +176,6 @@
                 <version>3.0.0.2</version>
             </dependency>
 
-
             <!-- jsoup -->
             <dependency>
                 <groupId>org.jsoup</groupId>
@@ -203,6 +202,14 @@
                 <artifactId>fastjson</artifactId>
                 <version>1.2.75</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>3.14.1</version>
+            </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>

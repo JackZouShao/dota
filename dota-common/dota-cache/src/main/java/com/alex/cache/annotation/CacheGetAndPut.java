@@ -1,5 +1,7 @@
 package com.alex.cache.annotation;
 
+import com.alex.cache.constants.CacheType;
+
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
@@ -37,5 +39,9 @@ public @interface CacheGetAndPut {
      * @return
      */
     TimeUnit timeUnit() default TimeUnit.HOURS;
+
+    CacheType cacheType() default CacheType.STRING;
+
+    String hashKey() default "";
 
 }

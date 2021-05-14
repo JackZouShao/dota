@@ -59,7 +59,7 @@ public class RJson<T> {
     }
 
     private static <T> RJson<T> createRJson(int code, String msg, T data){
-        RJson rJson = new RJson(msg, code, data);
+        RJson<T> rJson = new RJson(msg, code, data);
         return rJson;
     }
 
