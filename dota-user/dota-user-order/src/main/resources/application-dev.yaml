@@ -6,7 +6,7 @@ spring:
     password:
     ssl: false
     timeout: 3s
-#    cluster:
-#      nodes:
-#    sentinel:
-#      master:
+  redisson:
+    mode: singleServer # singleServer cluster sentinel
+
+
