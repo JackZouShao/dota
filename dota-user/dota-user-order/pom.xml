@@ -8,7 +8,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.alex</groupId>
     <artifactId>dota-user-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dota-user-order</name>
@@ -53,12 +52,6 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- dota-redis-spring-boot-starter -->
-        <dependency>
-            <groupId>com.alex</groupId>
-            <artifactId>dota-redis-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -82,6 +75,20 @@
             <artifactId>dota-common-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <!-- dota-redis-spring-boot-starter -->
+<!--        <dependency>-->
+<!--            <groupId>com.alex</groupId>-->
+<!--            <artifactId>dota-redis-spring-boot-starter</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.alex</groupId>
+            <artifactId>dota-cache-spring-boot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>

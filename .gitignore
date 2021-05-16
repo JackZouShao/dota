@@ -35,8 +35,6 @@
 *.classpath
 *.project
 *.settings
-*.mvn
 *.springBeans
 *.factorypath
-*.iml
 *.i

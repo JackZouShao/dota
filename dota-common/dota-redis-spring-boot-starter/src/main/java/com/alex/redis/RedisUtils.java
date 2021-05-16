@@ -17,13 +17,11 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC, staticName = "of")
 public class RedisUtils {
 
-    private final RedisTemplate redisTemplate;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     private final ValueOperations<String, Object> valueOperations;
 
-    public final static long EXPIRE_TIME = 60 * 60;
-
-    public final static long NOT_EXPIRE = -1l;
+    public final static long NOT_EXPIRE = -1L;
 
     public void set(String key, Object value){
         set(key, value, NOT_EXPIRE);
@@ -37,13 +35,21 @@ public class RedisUtils {
         valueOperations.set(key, JSON.toJSONString(value), expireTime, TimeUnit.SECONDS);
     }
 
+    public void set(String key, Object value, long expireTime, TimeUnit timeUnit) {
+        if (expireTime == NOT_EXPIRE) {
+            valueOperations.set(key, JSON.toJSONString(value));
+            return;
+        }
+        valueOperations.set(key, JSON.toJSONString(value), expireTime, timeUnit);
+    }
+
     public String get(String key, long expire){
         // TODO LUA
         String value = (String) valueOperations.get(key);
         if(expire != NOT_EXPIRE){
             redisTemplate.expire(key, expire, TimeUnit.SECONDS);
         }
-        return value == null ?  null : value;
+        return value;
     }
 
     public String get(String key){

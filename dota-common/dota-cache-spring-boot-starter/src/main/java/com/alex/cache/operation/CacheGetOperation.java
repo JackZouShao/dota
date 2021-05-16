@@ -1,15 +1,16 @@
-package com.alex.cache.manager;
+package com.alex.cache.operation;
 
 import com.alex.cache.CacheUtils;
 import com.alex.cache.annotation.CacheGet;
-import com.alibaba.fastjson.JSON;
+import com.alex.cache.manager.AnnotationParam;
+import com.alex.cache.manager.Cache;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.util.StringUtils;
 
-import java.lang.annotation.Annotation;
+import javax.annotation.Resource;
+import java.util.Objects;
 
 /**
  * @version 1.0.0
@@ -20,9 +21,12 @@ import java.lang.annotation.Annotation;
 @Slf4j
 public class CacheGetOperation implements CacheOperation {
 
+    @Resource
+    private Cache cache;
+
     @Override
     public Object cache(JoinPoint joinPoint) {
-        var proceedingJoinPoint = (ProceedingJoinPoint) joinPoint.getSignature();
+        ProceedingJoinPoint proceedingJoinPoint = (ProceedingJoinPoint) joinPoint;
         MethodSignature signature = (MethodSignature)joinPoint.getSignature();
         var method = signature.getMethod();
 
@@ -32,11 +36,10 @@ public class CacheGetOperation implements CacheOperation {
         var annotationParam = getParam(annotation);
         String key = CacheUtils.parseSpel(method, proceedingJoinPoint.getArgs(), annotationParam.getKey(), String.class, "");
         annotationParam.setCacheKey(key);
-        // TODO Cache.getValue();
-        var value = "";
-        Object result;
-        if(!StringUtils.isEmpty(value)){
-           return JSON.parseObject(value, returnType);
+
+        Object result = cache.get(annotationParam.getKey(), returnType);
+        if(!Objects.isNull(result)){
+            return result;
         }
 
         try {
@@ -46,6 +49,8 @@ public class CacheGetOperation implements CacheOperation {
             log.error("缓存被代理方法: {} , 执行报错: {}", method.getName(), throwable.getMessage());
             throw new IllegalStateException(throwable.getMessage());
         }
+
+        cache.set(key, result, annotationParam.getExpireTime(), annotationParam.getTimeUnit());
         return result;
     }
 

@@ -6,15 +6,16 @@ import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @className CacheGetAndPut.java
+ * @version 1.0.0
+ * @className CacheUpdate.java
  * @author: yz
- * @date: 2021/5/13 19:03
- *  * @version 1.0.0
+ * @date: 2021/5/13 19:06
  */
 @Documented
-@Target({ElementType.METHOD})
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CacheGetAndPut {
+public @interface CachePut {
+
 
     /**
      * 缓存前缀
@@ -43,5 +44,4 @@ public @interface CacheGetAndPut {
     CacheType cacheType() default CacheType.STRING;
 
     String hashKey() default "";
-
 }

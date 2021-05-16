@@ -7,6 +7,7 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
+import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Method;
 import java.util.Objects;
@@ -20,7 +21,6 @@ import java.util.Objects;
 @Slf4j
 public class CacheUtils {
 
-
     private static final ExpressionParser parser ;
     private static final LocalVariableTableParameterNameDiscoverer discover;
 
@@ -30,6 +30,9 @@ public class CacheUtils {
     }
 
     public static <T> T parseSpel(Method method, Object[] arguments, String spel, Class<T> klass, T defaultResult){
+        if(StringUtils.isEmpty(spel)){
+            return (T)"";
+        }
         String [] params = discover.getParameterNames(method);
         EvaluationContext context = new StandardEvaluationContext();
         for (int i = 0; i < Objects.requireNonNull(params).length; i++) {
@@ -37,8 +40,9 @@ public class CacheUtils {
         }
         try{
             Expression expression = parser.parseExpression(spel);
-            return (T) expression.getValue(context, klass);
+            return expression.getValue(context, klass);
         }catch (Exception exception){
+            exception.printStackTrace();
             log.error(exception.getMessage());
             return defaultResult;
         }

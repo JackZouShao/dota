@@ -2,8 +2,6 @@ package com.alex.order.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -30,7 +28,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("Dota API INFO")
                 .description("m")
-                .termsOfServiceUrl("http://www.google.com")
+                .termsOfServiceUrl("https://www.google.com")
                 .version("1.0")
                 .build();
     }

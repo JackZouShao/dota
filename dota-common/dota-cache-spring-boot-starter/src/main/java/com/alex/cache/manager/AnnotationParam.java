@@ -1,7 +1,6 @@
 package com.alex.cache.manager;
 
 import com.alex.cache.constants.CacheType;
-import jdk.jfr.DataAmount;
 import lombok.Builder;
 import lombok.Data;
 
@@ -28,12 +27,13 @@ public class AnnotationParam {
     private TimeUnit timeUnit;
     private int end;
     private int start;
+    private Class<?> returnType;
 
     /**
-     * 将前缀和注解的key 组成缓存的key
-     * @param id
+     * concat prefix and key
+     * @param id real cache key
      */
-    protected void setCacheKey(String id){
+    public void setCacheKey(String id){
         this.key = prefix + id;
     }
 
