@@ -35,9 +35,9 @@ public class CacheGetOperation implements CacheOperation {
 
         var annotationParam = getParam(annotation);
         String key = CacheUtils.parseSpel(method, proceedingJoinPoint.getArgs(), annotationParam.getKey(), String.class, "");
-        annotationParam.setCacheKey(key);
+        key = annotationParam.setCacheKey(key);
 
-        Object result = cache.get(annotationParam.getKey(), returnType);
+        Object result = cache.get(key, returnType);
         if(!Objects.isNull(result)){
             return result;
         }

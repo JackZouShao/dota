@@ -31,7 +31,7 @@ public class CacheUtils {
 
     public static <T> T parseSpel(Method method, Object[] arguments, String spel, Class<T> klass, T defaultResult){
         if(StringUtils.isEmpty(spel)){
-            return (T)"";
+            return null;
         }
         String [] params = discover.getParameterNames(method);
         EvaluationContext context = new StandardEvaluationContext();

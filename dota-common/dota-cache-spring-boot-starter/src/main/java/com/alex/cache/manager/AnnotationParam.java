@@ -33,8 +33,9 @@ public class AnnotationParam {
      * concat prefix and key
      * @param id real cache key
      */
-    public void setCacheKey(String id){
+    public String setCacheKey(String id){
         this.key = prefix + id;
+        return this.key;
     }
 
 

@@ -30,8 +30,7 @@ public class CacheInvalidateOperation implements CacheOperation {
 
         var annotationParam = getParam(annotation);
         String key = CacheUtils.parseSpel(method, joinPoint.getArgs(), annotationParam.getKey(), String.class, "");
-        annotationParam.setCacheKey(key);
-
+        key = annotationParam.setCacheKey(key);
         cache.invalidate(key);
         return null;
     }

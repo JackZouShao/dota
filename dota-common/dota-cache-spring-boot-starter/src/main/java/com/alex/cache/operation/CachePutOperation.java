@@ -33,8 +33,9 @@ public class CachePutOperation implements CacheOperation {
 		CachePut annotation = method.getAnnotation(CachePut.class);
 		AnnotationParam param = getParam(annotation);
 		String key = CacheUtils.parseSpel(method, joinPoint.getArgs(), param.getKey(), String.class, "");
-		param.setCacheKey(key);
-		cache.set(param.getKey(), result, param.getExpireTime(), param.getTimeUnit());
+		key = param.setCacheKey(key);
+
+		cache.set(key, result, param.getExpireTime(), param.getTimeUnit());
 		return result;
 	}
 
