@@ -14,6 +14,6 @@ public class PrestoTest {
 		properties.setProperty("user", "test");
 		properties.setProperty("password", "secret");
 		properties.setProperty("SSL", "true");
-		Connection connection = DriverManager.jujgetConnection(url, properties);
+		Connection connection = DriverManager.getConnection(url, properties);
 	}
 }
