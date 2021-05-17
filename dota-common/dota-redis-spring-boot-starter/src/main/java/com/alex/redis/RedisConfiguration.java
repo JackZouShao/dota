@@ -1,25 +1,17 @@
 package com.alex.redis;
 
-import io.reactivex.rxjava3.core.Single;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
-import org.redisson.codec.JsonJacksonCodec;
 import org.redisson.config.Config;
-import org.redisson.config.SingleServerConfig;
-import org.redisson.spring.starter.RedissonProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.util.NumberUtils;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.function.IntFunction;
 
 /**
  * redisson 主要用于分布式锁、优先等级队列等

@@ -30,7 +30,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("Dota API INFO")
                 .description("m")
-                .termsOfServiceUrl("http://www.google.com")
+                .termsOfServiceUrl("https://www.google.com")
                 .version("1.0")
                 .build();
     }

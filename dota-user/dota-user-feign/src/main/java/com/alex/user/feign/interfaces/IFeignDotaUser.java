@@ -19,27 +19,27 @@ public interface IFeignDotaUser {
 
     @ApiOperation(value = "根据WeChatToken当前登录用户")
     @ApiImplicitParam(value = "wechat token" ,name = "token", required = true , example = "123", paramType = "body")
-    @RequestMapping(value = "/feign/user/loginByWeChatToken",  method = RequestMethod.POST)
+    @PostMapping(value = "/feign/user/loginByWeChatToken")
     RJson<UserVo> loginByWechatToken(@RequestBody String token);
 
     @ApiOperation(value = "根据SteamToken当前登录用户")
-    @RequestMapping(value = "/feign/user/loginBySteamToken", method = RequestMethod.POST)
+    @PostMapping(value = "/feign/user/loginBySteamToken")
     RJson<UserVo> loginBySteamToken(@RequestBody String token);
 
     @ApiOperation(value = "更新用户")
-    @RequestMapping(value = "/feign/user/user/update", method = RequestMethod.PUT)
+    @PutMapping(value = "/feign/user/user/update")
     RJson<UserVo> updateById(@RequestBody UserQO qo);
 
     @ApiOperation(value = "删除用户")
-    @RequestMapping(value = "/feign/user/user/delete/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/feign/user/user/delete/{id}")
     RJson<String> deleteById(@PathVariable(value = "id") Long id);
 
     @ApiOperation(value = "根据用户编号获取当前登录用户", response = UserVo.class)
-    @RequestMapping(value = "/feign/user/user/getByUserNo/{userNo}", method = RequestMethod.GET)
+    @GetMapping(value = "/feign/user/user/getByUserNo/{userNo}")
     RJson<UserVo> getByUserNo(@PathVariable(value = "userNo") Long userNo);
 
     @ApiOperation(value = "根据手机号码获取登录用户" )
-    @RequestMapping(value = "/feign/user/user/getByMobile/{mobile}", method = RequestMethod.GET)
+    @GetMapping(value = "/feign/user/user/getByMobile/{mobile}")
     RJson<UserVo> getByMobile(@PathVariable(value = "mobile") String mobile);
 
 }
