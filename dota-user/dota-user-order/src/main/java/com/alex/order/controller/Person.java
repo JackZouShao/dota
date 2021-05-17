@@ -7,7 +7,7 @@ import lombok.Setter;
 
 /**
  * @version 1.0.0
- * @className Persion.java
+ * @className Person.java
  * @author: yz
  * @date: 2021/5/15 16:18
  */

@@ -5,8 +5,9 @@
     <modules>
         <module>dota-common-core</module>
         <module>dota-sentinel-starter</module>
-        <module>dota-cache</module>
+        <module>dota-cache-spring-boot-starter</module>
         <module>dota-redis-spring-boot-starter</module>
+        <module>dota-config-center</module>
     </modules>
     <parent>
         <artifactId>dota</artifactId>

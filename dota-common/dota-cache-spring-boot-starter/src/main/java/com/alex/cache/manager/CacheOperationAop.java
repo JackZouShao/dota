@@ -1,7 +1,9 @@
 package com.alex.cache.manager;
 
+import com.alex.cache.operation.CacheOperation;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 /**
@@ -14,11 +16,12 @@ import org.aspectj.lang.annotation.*;
 @RequiredArgsConstructor
 public class CacheOperationAop {
 
-    private final CacheOperation cacheGetOperation;
+    private final CacheOperation cachePutOperation;
     private final CacheOperation cacheInvalidateOperation;
+    private final CacheOperation cacheGetOperation;
 
-    @Pointcut("@annotation(com.alex.cache.annotation.CacheUpdate)")
-    public void cacheUpdate(){
+    @Pointcut("@annotation(com.alex.cache.annotation.CachePut)")
+    public void cachePut(){
 
     }
 
@@ -32,29 +35,19 @@ public class CacheOperationAop {
 
     }
 
-    @Pointcut("@annotation(com.alex.cache.annotation.CacheGetAndPut)")
-    public void cacheGetAndPut(){
-
-    }
-
-    @After(value = "cacheUpdate()")
-    public Object doCacheUpdate(JoinPoint joinPoint){
-        return null;
-    }
-
-    @Before(value = "cacheInvalidate()")
+    @After(value = "cacheInvalidate()")
     public Object doCacheInvalidate(JoinPoint joinPoint){
-        return null;
+        return cacheInvalidateOperation.cache(joinPoint);
     }
 
-    @Before(value = "cacheGet()")
-    public Object doCacheGet(JoinPoint joinPoint){
-        return null;
+    @AfterReturning(value = "cachePut()")
+    public Object doCachePut(JoinPoint joinPoint){
+        return cachePutOperation.cache(joinPoint);
     }
 
-    @Around(value = "cacheGetAndPut()")
-    public Object doCacheGetAndPut(JoinPoint joinPoint){
-        return null;
+    @Around(value = "cacheGet()")
+    public Object doCacheGet(ProceedingJoinPoint joinPoint){
+        return cacheGetOperation.cache(joinPoint);
     }
 
 }

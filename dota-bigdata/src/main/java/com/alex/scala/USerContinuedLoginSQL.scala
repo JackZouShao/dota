@@ -19,6 +19,7 @@ object USerContinuedLoginSQL {
 
     access.createTempView("v_assess_log")
 
+    val d = "S"
     // SQL
     spark.sql(
       s"""

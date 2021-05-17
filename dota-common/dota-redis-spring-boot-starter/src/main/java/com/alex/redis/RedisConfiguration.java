@@ -30,14 +30,37 @@ public class RedisConfiguration {
      * redisson 主要用于分布式锁、优先等级队列等
      * 分为 单服务器 集群和哨兵模式 ，不同模式根据参数配置不同生效
      * @return {@link RedissonClient}
-     * @throws IOException
      */
-    @Bean(destroyMethod = "shutdown")
+    @Bean(name = "redissonClient", destroyMethod = "shutdown")
     @ConditionalOnExpression("#{'singleServer'.equals(environment['spring.redisson.mode'])}")
-    public RedissonClient redissonClient() throws IOException {
+    public RedissonClient singleServerClient() throws IOException {
         Config config = Config.fromYAML(RedisConfiguration.class.getClassLoader().getResource("redisson-config.yml"));
         return Redisson.create(config);
     }
+
+
+    /**
+     * cluster
+     * @return  {@link RedissonClient}
+     */
+    @Bean(name = "redissonClient", destroyMethod = "shutdown")
+    @ConditionalOnExpression("#{'cluster'.equals(environment['spring.redisson.mode'])}")
+    public RedissonClient clusterClient() throws IOException {
+        Config config = Config.fromYAML(RedisConfiguration.class.getClassLoader().getResource("redisson-config.yml"));
+        return Redisson.create(config);
+    }
+
+    /**
+     * sentinel
+     * @return {@link RedissonClient}
+     */
+    @Bean(name = "redissonClient", destroyMethod = "shutdown")
+    @ConditionalOnExpression("#{'sentinel'.equals(environment['spring.redisson.mode'])}")
+    public RedissonClient sentinelClient() throws IOException {
+        Config config = Config.fromYAML(RedisConfiguration.class.getClassLoader().getResource("redisson-config.yml"));
+        return Redisson.create(config);
+    }
+
 
     @Bean
     public RedisSerializer<String> redisKeySerializer(){
@@ -51,9 +74,9 @@ public class RedisConfiguration {
 
     /**
      * RedisTemplate 主要用于普通的缓存操作
-     * @param redisConnectionFactory
-     * @param redisKeySerializer
-     * @param redisValueSerializer
+     * @param redisConnectionFactory 连接工厂
+     * @param redisKeySerializer key 序列器
+     * @param redisValueSerializer value 序列器
      * @return RedisTemplate
      */
     @Bean
@@ -94,12 +117,12 @@ public class RedisConfiguration {
     }
 
     @Bean
-    public ZSetOperations zSetOperations(RedisTemplate<String, Object> redisTemplate){
+    public ZSetOperations<String, Object> zSetOperations(RedisTemplate<String, Object> redisTemplate){
         return redisTemplate.opsForZSet();
     }
 
     @Bean
-    public RedisUtils redisUtils(RedisTemplate redisTemplate, ValueOperations<String, Object> valueOperations){
+    public RedisUtils redisUtils(RedisTemplate<String, Object> redisTemplate, ValueOperations<String, Object> valueOperations){
        return RedisUtils.of(redisTemplate, valueOperations);
     }
 

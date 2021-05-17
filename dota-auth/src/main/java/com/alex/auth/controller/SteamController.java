@@ -21,14 +21,13 @@ import java.io.UnsupportedEncodingException;
 @RequiredArgsConstructor
 public class SteamController {
 
-
 	@Value("dota.url")
 	private String domain;
 
 	@ApiOperation("获取steam token")
 	@RequestMapping(value = "/token", method = RequestMethod.GET)
 	public RJson<String> getLoginUrl()  {
-		String token = null;
+		String token;
 		try {
 			token = SteamApi.getUrl(domain);
 		} catch (UnsupportedEncodingException e) {

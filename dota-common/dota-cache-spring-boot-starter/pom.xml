@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dota-cache</artifactId>
+    <artifactId>dota-cache-spring-boot-starter</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -25,8 +25,14 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alex</groupId>
+            <artifactId>dota-redis-spring-boot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

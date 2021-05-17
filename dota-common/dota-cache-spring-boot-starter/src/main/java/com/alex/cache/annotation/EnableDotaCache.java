@@ -1,6 +1,6 @@
 package com.alex.cache.annotation;
 
-import com.alex.cache.manager.CacheImportSelector;
+import com.alex.cache.config.CacheImportSelector;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

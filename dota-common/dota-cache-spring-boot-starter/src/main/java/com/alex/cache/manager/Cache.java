@@ -13,13 +13,16 @@ import java.util.concurrent.TimeUnit;
 public interface Cache {
 
     String get(String key);
-    void set(String key, String value);
-    void set(String key, String value, int expireTime, TimeUnit timeUnit);
+    <T> T get(String key, Class<T> clazz);
+
+    void set(String key, Object value);
+    void set(String key, Object value, int expireTime, TimeUnit timeUnit);
 
     String hget(String key);
     void hset(String key, String value);
     void hset(String key, String value, int expireTime, TimeUnit timeUnit);
 
     void setExpireTime(String key, int expireTime, TimeUnit timeUnit);
-    void invalidate(Collection<String> keys);
+    Long invalidate(Collection<String> keys);
+    Boolean invalidate(String keys);
 }

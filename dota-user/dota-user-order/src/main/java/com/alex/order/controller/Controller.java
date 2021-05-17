@@ -1,6 +1,7 @@
 package com.alex.order.controller;
 
 import com.alex.common.util.RJson;
+import com.alex.order.DemoService;
 import com.alex.redis.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,22 +23,19 @@ public class Controller {
     private RedissonClient redissonClient;
 
     @Resource
-    private ValueOperations valueOperations;
+    private ValueOperations<String, String> valueOperations;
 
     @Resource
     private RedisUtils redisUtils;
 
+    @Resource
+    private DemoService demoService;
+
     @ApiOperation("测试feign")
     @GetMapping("/get")
-    public RJson<String> order(){
-        RBucket<String> bucket = redissonClient.getBucket("1");
-        bucket.set("123");
-
-        redisUtils.set("s", new Person("susan", 12));
-        System.out.println(redisUtils.get("s"));
-        System.out.println(redisUtils.get("s", Person.class));
-        System.out.println(redisUtils.get("s", Person.class, 1));
-        return null;
+    public RJson<Person> order(){
+//        redisUtils.set("p:s", new Person("susan", 12));
+        return RJson.ok(demoService.getPerson()) ;
     }
 }
 
