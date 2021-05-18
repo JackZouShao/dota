@@ -41,12 +41,14 @@
             <id>dev</id>
             <properties>
                 <env>dev</env>
+                <dota.nacos.config.server>localhost:8848</dota.nacos.config.server>
             </properties>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
                 <env>prod</env>
+                <dota.nacos.config.server>localhost:8848</dota.nacos.config.server>
             </properties>
         </profile>
         <profile>
