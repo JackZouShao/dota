@@ -19,7 +19,7 @@ public class DotaUserOrderApplication {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(DotaUserOrderApplication.class, args);
         String userName = applicationContext.getEnvironment().getProperty("user.name");
         String userAge = applicationContext.getEnvironment().getProperty("user.age");
-         userAge = applicationContext.getEnvironment().getProperty("spring.application.name");
+        userAge = applicationContext.getEnvironment().getProperty("spring.application.name");
         System.err.println("user name :"+userName+"; age: "+userAge);
     }
 

@@ -2,18 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+
     <groupId>com.alex</groupId>
     <artifactId>dota</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dota</name>
     <description>For Dota</description>
     <packaging>pom</packaging>
+
     <modules>
         <module>dota-common</module>
         <module>dota-gateway</module>
@@ -26,14 +22,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>15</java.version>
+        <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <knife4j.version>2.0.8</knife4j.version>
         <swagger.version>2.10.1</swagger.version>
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
-        <spring-boot-dependencies.version>2.2.10.RELEASE</spring-boot-dependencies.version>
-        <dota.version>${version}</dota.version>
+        <spring-boot-dependencies.version>2.3.4.RELEASE </spring-boot-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2.2.5.RELEASE</spring-cloud-alibaba-dependencies.version>
+        <spring.kafka>2.4.1</spring.kafka>
+        <kafka.client>2.4.1</kafka.client>
+        <dota.version>0.0.1-SNAPSHOT</dota.version>
     </properties>
+
 
     <!-- 环境变量 -->
     <profiles>
@@ -41,12 +41,14 @@
             <id>dev</id>
             <properties>
                 <env>dev</env>
+                <dota.nacos.config.server>localhost:8848</dota.nacos.config.server>
             </properties>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
                 <env>prod</env>
+                <dota.nacos.config.server>localhost:8848</dota.nacos.config.server>
             </properties>
         </profile>
         <profile>
@@ -64,9 +66,28 @@
         </developer>
     </developers>
 
-
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>central-repos</id>
+            <name>Central Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+    
     <dependencyManagement>
         <dependencies>
+            <!-- spring cloud 依赖 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -82,20 +103,43 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- springboot 依赖-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- springboot 依赖-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
                 <optional>true</optional>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>2.7.0</version>
+            </dependency>
 
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.3.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka.client}</version>
             </dependency>
+
             <!-- caffeine -->
             <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>
@@ -135,6 +179,7 @@
                 <artifactId>knife4j-micro-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -208,9 +253,6 @@
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>3.14.1</version>
             </dependency>
-
-
-
         </dependencies>
     </dependencyManagement>
     <build>

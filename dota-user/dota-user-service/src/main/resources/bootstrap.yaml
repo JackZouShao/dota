@@ -1,27 +1,38 @@
-#config service
+# 项目的基本配置 每个项目具体不同
 server:
   port: 8081
 spring:
   application:
     name: dota-user-service
   profiles:
-    active: dev
+    active: prod
+
+# 不同环境启用不同的配置 并且将每个项目的私有配置放在nacos上
+# 根据 ${prefix}-${spring.profiles.active}.${file-extension} 中的-${spring.profiles.active}
+# 进行区分，启动时用指令指定active配置项 java -Dspring.profiles.active=test -jar example-0.0.1-SNAPSHOT.jar
+---
+spring:
+  profiles: prod
   cloud:
     nacos:
       discovery:
+        server-addr: ${dota.nacos.discovery.server}
+      config: # config设置必须明码 不能使用 ${}引用形式
         server-addr: localhost:8848
+        file-extension: yaml
+nack: ${dota.nacos.config.server}
+
+
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${dota.nacos.discovery.server}
       config:
         server-addr: localhost:8848
         file-extension: yaml
-    sentinel:
-      transport:
-        dashboard: localhost:8080
-management:
-  endpoints:
-    web:
-      exposure:
-        include=*:
-
 
 
 

@@ -37,4 +37,4 @@
 *.settings
 *.springBeans
 *.factorypath
-*.i
+rebel.xml
