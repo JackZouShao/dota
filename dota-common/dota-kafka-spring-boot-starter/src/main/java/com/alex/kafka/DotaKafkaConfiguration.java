@@ -16,11 +16,11 @@ import org.springframework.kafka.core.KafkaTemplate;
 @EnableConfigurationProperties({KafkaProperties.class})
 public class DotaKafkaConfiguration {
 
-    @Bean
-    @ConditionalOnProperty("spring.kafka")
-    public KafkaTemplate<String, String> kafkaTemplate(){
-        return new KafkaTemplate<String, String>(new DefaultKafkaProducerFactory<>());
-    }
+//    @Bean
+//    @ConditionalOnProperty("spring.kafka")
+//    public KafkaTemplate<String, String> kafkaTemplate(){
+//        return new KafkaTemplate<String, String>(new DefaultKafkaProducerFactory<String, String>());
+//    }
 
 
 }
