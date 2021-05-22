@@ -20,7 +20,15 @@ spring:
       config: # config设置必须明码 不能使用 ${}引用形式
         server-addr: localhost:8848
         file-extension: yaml
-nack: ${dota.nacos.config.server}
+dota:
+  swagger:
+    title: dota API
+    description: 分布式系统
+    name: dota API 分布式系统
+    url: www.google.com
+    version: 1.1.0
+    packages:
+      - com.alex.user.controller
 
 
 ---

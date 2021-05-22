@@ -24,3 +24,11 @@ wechat:
   appSecret: aa5b13b9949f2b398a6ada37d6ba76e9
 dota:
   url: https://dota.vlgcty.com/
+  swagger:
+    title: dota API
+    description: 分布式系统
+    name: dota API 分布式系统
+    url: www.google.com
+    version: 1.1.0
+    packages:
+      - com.alex.auth.controller

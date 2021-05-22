@@ -9,6 +9,7 @@
         <module>dota-redis-spring-boot-starter</module>
         <module>dota-config-center</module>
         <module>dota-kafka-spring-boot-starter</module>
+        <module>dota-swagger-spring-boot-starter</module>
     </modules>
     <parent>
         <artifactId>dota</artifactId>
@@ -20,6 +21,5 @@
     <description>common module for dota</description>
 
     <packaging>pom</packaging>
-
 
 </project>
