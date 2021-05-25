@@ -1,8 +1,11 @@
 package com.alex.kafka.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.core.annotation.Order;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 
@@ -17,6 +20,21 @@ import java.util.Map;
 @EnableConfigurationProperties({KafkaProperties.class})
 public class DotaKafkaConfiguration {
 
+//    @Bean
+//    public ProducerFactory<String, Object> producerFactory(KafkaProperties kafkaProperties) {
+//        return new DefaultKafkaProducerFactory<>(kafkaProperties.buildProducerProperties());
+//    }
+//
+//    @Bean
+//    public ConsumerFactory<String, Object> consumerFactory(KafkaProperties kafkaProperties) {
+//        return new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties());
+//    }
+
+//    @Bean
+//    public KafkaTemplate<Integer, String> kafkaTemplate(ProducerFactory<Integer, String> producerFactory) {
+//        return new KafkaTemplate<>(producerFactory);
+//    }
+
     @Bean
     ConcurrentKafkaListenerContainerFactory<Integer, String>
     kafkaListenerContainerFactory(ConsumerFactory<Integer, String> consumerFactory) {
@@ -24,22 +42,6 @@ public class DotaKafkaConfiguration {
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
         return factory;
-    }
-
-    @Bean
-    public ConsumerFactory<String, Object> consumerFactory(KafkaProperties kafkaProperties) {
-        Map<String, Object> consumerProperties = kafkaProperties.buildConsumerProperties();
-        return new DefaultKafkaConsumerFactory<>(consumerProperties);
-    }
-
-    @Bean
-    public ProducerFactory<String, Object> producerFactory(KafkaProperties kafkaProperties) {
-        return new DefaultKafkaProducerFactory<>(kafkaProperties.buildProducerProperties());
-    }
-
-    @Bean
-    public KafkaTemplate<Integer, String> kafkaTemplate(ProducerFactory<Integer, String> producerFactory) {
-        return new KafkaTemplate<>(producerFactory);
     }
 
 //    private Map<String, Object> consumerProps() {
