@@ -3,6 +3,7 @@ package com.alex.common;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
@@ -18,12 +19,15 @@ public class ReflectDemo {
 
     private List<String> list;
 
-    public static void main(String[] args) throws NoSuchFieldException {
-
-
+    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
         Class<Sub> clazz = Sub.class;
+        clazz.getDeclaredConstructor().newInstance();
+        String typeName = null;
+        Arrays.asList(clazz.getTypeParameters()).forEach(System.out::println);
         Type genericSuperclass = clazz.getGenericSuperclass();
+        System.out.println("----------------");
+
         if(genericSuperclass instanceof ParameterizedType){
             ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
@@ -67,4 +71,7 @@ class Person{
 }
 abstract class Super<T, E>{}
 
-class Sub extends Super<String, List<Person>>{}
+class Sub<T> extends Super<String, List<Person>>{
+
+
+}

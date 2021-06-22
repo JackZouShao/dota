@@ -30,7 +30,6 @@ dota:
     packages:
       - com.alex.user.controller
 
-
 ---
 spring:
   profiles: dev
