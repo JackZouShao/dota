@@ -14,6 +14,7 @@ import java.util.List;
 public class GenericArrayTypeDemo {
 
     public static void main(String[] args) {
+        System.out.println(2%1);
         Class<GenericArrayTypeDemo> genericArrayTypeDemoClass = GenericArrayTypeDemo.class;
         Method[] methods = genericArrayTypeDemoClass.getMethods();
         for (Method method : methods) {
