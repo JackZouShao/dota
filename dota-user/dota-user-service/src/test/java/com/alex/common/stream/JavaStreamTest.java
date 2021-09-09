@@ -1,11 +1,14 @@
 package com.alex.common.stream;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 import java.util.Properties;
 
 /**
@@ -14,6 +17,7 @@ import java.util.Properties;
  * @author: yz
  * @date: 2021/8/2 23:37
  */
+@Slf4j
 @RunWith(JUnit4.class)
 public class JavaStreamTest {
 
@@ -107,14 +111,24 @@ public class JavaStreamTest {
 
 
 
-
-
-
-
-
-
-
-
-
-
+    /**
+     * filter测试
+     */
+    @Test
+    public void optionalTest11() {
+        User user = new User();
+        user.setName("张三");
+        user.setAge(11);
+        User user1 = Optional.ofNullable(user).filter(u -> u.getName().equals("张三") && u.getAge() == 11).orElseThrow(() -> new NullPointerException());
+        // user对象
+        log.info("user1:" + user1);
+        // NullPointerException
+        User user2 = Optional.ofNullable(user).filter(u -> u.getName().equals("张三") && u.getAge() == 22).orElseThrow(() -> new NullPointerException());
+        log.info("user2:" + user2);
+    }
+}
+@Data
+class User{
+    private String name;
+    private int age;
 }
