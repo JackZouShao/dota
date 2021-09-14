@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 /**
@@ -20,6 +19,8 @@ public class ScheduleExecutorTestRunner {
     @Test
     public void TestA(){
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(12);
-        scheduledThreadPoolExecutor.scheduleAtFixedRate()
+//        scheduledThreadPoolExecutor.scheduleAtFixedRate();
+//        scheduledThreadPoolExecutor.schedule();
+//        scheduledThreadPoolExecutor.scheduleWithFixedDelay();
     }
 }

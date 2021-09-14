@@ -86,7 +86,7 @@ public class ThreadJoinTestRunner {
     }
 
     /**
-     * Reentre
+     * Reentrant lock 测试用例
      */
     @RequiredArgsConstructor
     private class ReentrantLockThread implements Runnable{
