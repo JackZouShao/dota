@@ -1,7 +1,7 @@
-package com.alex.order;
+package com.alex.order.service;
 
 import com.alex.cache.annotation.CacheGet;
-import com.alex.order.controller.Person;
+import com.alex.user.feign.vo.Person;
 import org.springframework.stereotype.Service;
 
 @Service

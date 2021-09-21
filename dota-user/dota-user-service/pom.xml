@@ -69,6 +69,12 @@
 
         <dependency>
             <groupId>com.alex</groupId>
+            <artifactId>dota-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alex</groupId>
             <artifactId>dota-config-center</artifactId>
             <version>${version}</version>
         </dependency>
@@ -85,6 +91,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+        </dependency>
+
 
     </dependencies>
 

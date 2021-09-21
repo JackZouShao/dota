@@ -17,6 +17,10 @@ spring:
       config:
         server-addr: localhost:8848
         file-extension: yaml
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
     gateway:
       routes:
         - id: dota-auth-service
@@ -35,6 +39,11 @@ spring:
           uri: lb://dota-user-order
           predicates:
             - Path=/order/**
+#            - Header=token? header 匹配
+#            - name: CheckAuth 自定义 PredicateFactory
+#              args:
+#                name: fox
+#            - CheckAuth=fox
           filters:
             - StripPrefix=1
       loadbalancer:

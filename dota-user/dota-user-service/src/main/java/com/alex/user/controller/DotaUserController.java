@@ -4,13 +4,21 @@ import com.alex.common.util.RJson;
 import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 用户服务
+ */
+@Slf4j
 @RestController
 public class DotaUserController implements IFeignDotaUser{
 
     @Override
     public RJson<UserVo> loginByWechatToken(String token) {
+
         return RJson.ok(new UserVo().setWechatToken("123"));
     }
 
@@ -31,7 +39,8 @@ public class DotaUserController implements IFeignDotaUser{
 
     @Override
     public RJson<UserVo> getByUserNo(Long userNo) {
-        return null;
+        log.info("查询 user info");
+        return RJson.ok(new UserVo().setUserNo(123l));
     }
 
     @Override

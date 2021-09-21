@@ -36,7 +36,8 @@ public class IFeignDotaUserFallback implements IFeignDotaUser{
 
     @Override
     public RJson<UserVo> getByUserNo(Long userNo) {
-        return null;
+        log.warn("getByUserNo 出发熔断");
+        return RJson.failed("熔断", 202);
     }
 
     @Override

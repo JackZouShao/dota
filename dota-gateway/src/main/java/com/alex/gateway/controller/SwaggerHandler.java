@@ -12,6 +12,7 @@ import springfox.documentation.swagger.web.*;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class SwaggerHandler {
 
     @Autowired(required = false)
@@ -21,11 +22,6 @@ public class SwaggerHandler {
     private UiConfiguration uiConfiguration;
 
     private final SwaggerResourcesProvider swaggerResources;
-
-    @Autowired
-    public SwaggerHandler(SwaggerResourcesProvider swaggerResources) {
-        this.swaggerResources = swaggerResources;
-    }
 
 
     @GetMapping("/swagger-resources/configuration/security")

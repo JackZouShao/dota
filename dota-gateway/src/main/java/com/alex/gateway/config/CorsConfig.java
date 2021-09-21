@@ -9,7 +9,10 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.util.pattern.PathPatternParser;
 
-@Configuration
+/**
+ * 跨域配置
+ */
+//@Configuration
 public class CorsConfig {
 
     private static final String ALL = "*";

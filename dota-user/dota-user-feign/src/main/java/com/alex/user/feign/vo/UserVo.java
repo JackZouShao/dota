@@ -11,6 +11,7 @@ import java.util.Date;
 @Accessors(chain = true)
 @ApiModel(value = "UserVo", description = "UserVo1")
 public class UserVo {
+
     private static final long serialVersionUID = 1L;
 
     /**

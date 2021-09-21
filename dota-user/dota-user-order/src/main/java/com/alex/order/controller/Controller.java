@@ -1,17 +1,16 @@
 package com.alex.order.controller;
 
 import com.alex.common.util.RJson;
-import com.alex.order.DemoService;
-import com.alex.redis.RedisUtils;
+import com.alex.order.service.DemoService;
+import com.alex.user.feign.vo.Person;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.redisson.api.RBucket;
-import org.redisson.api.RedissonClient;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 @Api("订单")
@@ -19,22 +18,21 @@ import javax.annotation.Resource;
 @RequestMapping("/test")
 public class Controller {
 
-    @Resource
-    private RedissonClient redissonClient;
-
-    @Resource
-    private ValueOperations<String, String> valueOperations;
-
-    @Resource
-    private RedisUtils redisUtils;
+    @Value("${ex}")
+    private String ex;
 
     @Resource
     private DemoService demoService;
 
+    @PostConstruct
+    public void init(){
+        System.out.println(ex);
+    }
+
     @ApiOperation("测试feign")
     @GetMapping("/get")
     public RJson<Person> order(){
-//        redisUtils.set("p:s", new Person("susan", 12));
+        System.out.println(ex);
         return RJson.ok(demoService.getPerson()) ;
     }
 }

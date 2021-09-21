@@ -16,6 +16,7 @@ public class DotaUserOrderApplication {
 
     public static void main(String[] args) {
 //        SpringApplication.run(DotaUserOrderApplication.class, args);
+        // 系统设置
         ConfigurableApplicationContext applicationContext = SpringApplication.run(DotaUserOrderApplication.class, args);
         String userName = applicationContext.getEnvironment().getProperty("user.name");
         String userAge = applicationContext.getEnvironment().getProperty("user.age");
