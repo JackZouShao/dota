@@ -55,32 +55,32 @@ public class JavaStreamTest {
     @Test
     public void testStreamBuffer() {
 
-        try (
-            //  字节 --> 字符
-            InputStream in = new FileInputStream("/Users" + File.separator + "yz/jbr_err_pid15465.log");
-            InputStreamReader inputStreamReader = new InputStreamReader(in)) {
-
-            char[] chars = new char[1024];
-            int index = 0;
-            while((index = inputStreamReader.read(chars)) != -1){
-                for (int i = 0; i < index; i++) {
-                    System.out.print(chars[i]);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // test OutputStreamBuffer
-        OutputStream out;
-        // 字符 --> 字节流
-        try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(("/Users" + File.separator + "yz/jbr_err_pid143771.log")))){
-            outputStreamWriter.write("1232323232");
-            StringBuffer s = new StringBuffer();
-        }
-         catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try (
+//            //  字节 --> 字符
+//            InputStream in = new FileInputStream("/Users" + File.separator + "yz/jbr_err_pid15465.log");
+//            InputStreamReader inputStreamReader = new InputStreamReader(in)) {
+//
+//            char[] chars = new char[1024];
+//            int index = 0;
+//            while((index = inputStreamReader.read(chars)) != -1){
+//                for (int i = 0; i < index; i++) {
+//                    System.out.print(chars[i]);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        // test OutputStreamBuffer
+//        OutputStream out;
+//        // 字符 --> 字节流
+//        try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(("/Users" + File.separator + "yz/jbr_err_pid143771.log")))){
+//            outputStreamWriter.write("1232323232");
+//            StringBuffer s = new StringBuffer();
+//        }
+//         catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
     }

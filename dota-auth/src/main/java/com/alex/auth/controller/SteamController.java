@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 @Slf4j
 @Api(tags = "steam api reference")
@@ -28,6 +30,7 @@ public class SteamController {
 	@RequestMapping(value = "/token", method = RequestMethod.GET)
 	public RJson<String> getLoginUrl()  {
 		String token;
+
 		try {
 			token = SteamApi.getUrl(domain);
 		} catch (UnsupportedEncodingException e) {

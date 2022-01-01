@@ -2,6 +2,7 @@ package com.alex.common.lock;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @version 1.0.0
@@ -12,8 +13,6 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueueTestRunner {
 
     public static void main(String[] args) throws InterruptedException {
-        BlockingQueue<Integer> numbersQueue = new ArrayBlockingQueue<>(16);
-        numbersQueue.put(1);
-        numbersQueue.take();
+
     }
 }

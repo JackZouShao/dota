@@ -4,7 +4,9 @@ import com.alex.common.util.RJson;
 import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RedissonClient;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.TimeUnit;
@@ -14,11 +16,13 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class DotaUserController implements IFeignDotaUser{
+
+    private final RedissonClient redissonClient;
 
     @Override
     public RJson<UserVo> loginByWechatToken(String token) {
-
         return RJson.ok(new UserVo().setWechatToken("123"));
     }
 

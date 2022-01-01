@@ -21,6 +21,7 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+
         <!-- nacos-config -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -47,6 +48,12 @@
         <dependency>
             <groupId>com.alex</groupId>
             <artifactId>dota-user-feign</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alex</groupId>
+            <artifactId>dota-redis-spring-boot-starter</artifactId>
             <version>${version}</version>
         </dependency>
 
