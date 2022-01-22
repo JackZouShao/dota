@@ -2,11 +2,10 @@ package com.alex.user.feign.interfaces.fallback;
 
 import com.alex.common.util.RJson;
 import com.alex.user.feign.interfaces.IFeignDotaUser;
-import com.alex.user.feign.qo.UserQO;
+import com.alex.user.feign.vo.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * IFeignDotaUser 降级接口

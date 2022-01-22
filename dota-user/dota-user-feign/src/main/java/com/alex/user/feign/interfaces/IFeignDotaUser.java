@@ -1,9 +1,8 @@
 package com.alex.user.feign.interfaces;
 
 import com.alex.common.util.RJson;
-import com.alex.user.feign.interfaces.fallback.IFeignDotaUserFallBackFactory;
 import com.alex.user.feign.interfaces.fallback.IFeignDotaUserFallback;
-import com.alex.user.feign.qo.UserQO;
+import com.alex.user.feign.vo.qo.UserQO;
 import com.alex.user.feign.vo.UserVo;
 import io.swagger.annotations.*;
 import org.springframework.cloud.openfeign.FeignClient;
