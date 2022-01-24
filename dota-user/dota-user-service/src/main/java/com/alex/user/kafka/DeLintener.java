@@ -30,9 +30,4 @@ public class DeLintener implements Comparable<DeLintener> {
     }
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            //    @KafkaListener(topics = "demo", groupId = "group1")
-//    public void onLoginMessage(@Payload String message, @Header("type") String type) throws Exception {
-//        System.out.println(message);
-//        "1".hashCode();
-//    }
 }

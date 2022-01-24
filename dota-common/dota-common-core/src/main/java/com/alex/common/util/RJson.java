@@ -64,4 +64,7 @@ public class RJson<T> {
     }
 
 
+    public static RJson error(int i, String msg) {
+        return createRJson(i, msg, null);
+    }
 }

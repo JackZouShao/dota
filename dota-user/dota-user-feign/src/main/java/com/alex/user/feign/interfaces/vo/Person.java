@@ -1,4 +1,4 @@
-package com.alex.user.feign.vo;
+package com.alex.user.feign.interfaces.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

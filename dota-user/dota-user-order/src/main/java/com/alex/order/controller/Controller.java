@@ -2,7 +2,7 @@ package com.alex.order.controller;
 
 import com.alex.common.util.RJson;
 import com.alex.order.service.DemoService;
-import com.alex.user.feign.vo.Person;
+import com.alex.user.feign.interfaces.vo.Person;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;

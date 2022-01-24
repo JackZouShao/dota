@@ -25,9 +25,6 @@ public class CheckIpFilter implements GlobalFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         List<String> token = exchange.getRequest().getHeaders().get("token");
         log.info("token : {}", token);
-//        if(token.isEmpty()){
-//            return null;
-//        }
         return chain.filter(exchange);
     }
 }

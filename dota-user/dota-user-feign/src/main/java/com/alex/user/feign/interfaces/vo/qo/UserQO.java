@@ -1,4 +1,4 @@
-package com.alex.user.feign.vo.qo;
+package com.alex.user.feign.interfaces.vo.qo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -5,7 +5,7 @@
 4. Service Gate: Spring Gate Way
 6. Tracing Analysis: Sleuth
 9. Message Broker: Spring Cloud Stream
-10. Message BUS: SpringCloud bus
+10. Message BUS: SpringCloud Bus
 11. Restful : p
 12. Spring JPA : spring-data-commons
 
@@ -52,3 +52,6 @@ spring:
 启动命令spring.profiles.active指定文件中的值 > 文件中spring.profiles.active指定的文件列表中最后一次出现的值 > 文件中spring.profiles.include指定的文件列表中最后一次出现的值
 
 （注意：无论是否配置启动命令参数指定文件，最后都会加载application.properties，它里边配置的信息也很关键）
+## 其他事项
+- Feign 的自定义配置及使用:Feign通过拦截器实现认证,feign日志
+- Feign使用 Hytrix 时 FallBack 和 FallBackFactory， FallBack 优先

@@ -1,5 +1,6 @@
 package com.alex.gateway.config;
 
+import com.alex.common.advice.CustomSentinelBlockExceptionHandler;
 import com.alibaba.csp.sentinel.adapter.gateway.common.SentinelGatewayConstants;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiDefinition;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiPathPredicateItem;
@@ -11,6 +12,7 @@ import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.callback.BlockRequestHandler;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.callback.GatewayCallbackManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.exception.SentinelGatewayBlockExceptionHandler;
+import com.alibaba.csp.sentinel.adapter.spring.webmvc.callback.BlockExceptionHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;
@@ -57,14 +59,16 @@ public class GatewayConfiguration {
         return new SentinelGatewayFilter();
     }
 
+
+
     @PostConstruct
     public void doInit(){
         //初始化自定义的API
-        initCustomizedApis();
-        //初始化网关限流规则
-        initGatewayRules();
-        //自定义限流异常处理器
-        initBlockRequestHandler();
+//        initCustomizedApis();
+//        //初始化网关限流规则
+//        initGatewayRules();
+//        //自定义限流异常处理器
+//        initBlockRequestHandler();
     }
 
 
