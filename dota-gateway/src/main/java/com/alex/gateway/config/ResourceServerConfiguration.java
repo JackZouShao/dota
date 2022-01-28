@@ -42,6 +42,7 @@ public class ResourceServerConfiguration {
 
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http){
+        // Configures the Converter to use for converting a Jwt into an AbstractAuthenticationToken
         http.oauth2ResourceServer().jwt()
                 .jwtAuthenticationConverter(jwtAuthenticationConverter());
 

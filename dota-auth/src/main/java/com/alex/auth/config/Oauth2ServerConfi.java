@@ -1,17 +1,21 @@
 package com.alex.auth.config;
 
+import com.alex.auth.component.JwtTokenEnhancer;
 import com.alex.auth.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
 import java.security.KeyPair;
@@ -33,12 +37,14 @@ import java.util.List;
  * @date: 2022/1/23 23:45
  */
 @RequiredArgsConstructor
-public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
+//@EnableAuthorizationServer
+//@Configuration
+public class Oauth2ServerConfi extends AuthorizationServerConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
     private final UserServiceImpl userService;
     private final AuthenticationManager authenticationManager;
-    private final TokenEnhancer jwtTokenEnhancer;
+    private final JwtTokenEnhancer jwtTokenEnhancer;
 
 
     @Override
@@ -54,7 +60,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        super.configure(security);
+        security.allowFormAuthenticationForClients();
     }
 
     @Override
@@ -83,6 +89,4 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "5545125".toCharArray());
         return keyStoreKeyFactory.getKeyPair("jwt", "5545125".toCharArray());
     }
-
-
 }

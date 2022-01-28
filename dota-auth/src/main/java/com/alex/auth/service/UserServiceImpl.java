@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * @author: yz
  * @date: 2022/1/23 22:56
  */
-@Service
+//@Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserDetailsService {
 
