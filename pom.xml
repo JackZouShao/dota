@@ -6,17 +6,18 @@
     <groupId>com.alex</groupId>
     <artifactId>dota</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>dota</name>
+
     <description>For Dota</description>
     <packaging>pom</packaging>
 
     <modules>
         <module>dota-common</module>
         <module>dota-gateway</module>
-        <module>dota-util</module>
-        <module>dota-user</module>
         <module>dota-auth</module>
         <module>dota-bigdata</module>
+        <module>dota-biz</module>
     </modules>
 
     <properties>

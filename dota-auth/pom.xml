@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.alex</groupId>
             <artifactId>dota-user-feign</artifactId>
-            <version>${version}</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>dota-common-core</module>
         <module>dota-sentinel-starter</module>
@@ -9,12 +10,16 @@
         <module>dota-redis-spring-boot-starter</module>
         <module>dota-config-center</module>
         <module>dota-kafka-spring-boot-starter</module>
+        <module>dota-util</module>
+
     </modules>
     <parent>
         <artifactId>dota</artifactId>
         <groupId>com.alex</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
+    <groupId>com.alex</groupId>
     <artifactId>dota-common</artifactId>
     <name>dota-common</name>
     <description>common module for dota</description>
