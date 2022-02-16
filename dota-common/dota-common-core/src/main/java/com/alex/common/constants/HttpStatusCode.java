@@ -9,5 +9,5 @@ public interface HttpStatusCode {
 
     int FAILED = 201;
 
-    int NOT_CONNECTED = 2123;
+    int NOT_CONNECTED = 212;
 }

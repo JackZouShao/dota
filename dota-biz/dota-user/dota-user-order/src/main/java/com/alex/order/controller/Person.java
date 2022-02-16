@@ -1,9 +1,7 @@
-package com.alex.order.controller;
+package com.alex.user.feign.interfaces.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @version 1.0.0

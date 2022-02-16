@@ -4,7 +4,7 @@ spring:
   application:
     name: dota-user-order
   profiles:
-    active: dev
+    active: dev, core
   cloud:
     nacos:
       discovery:
@@ -12,8 +12,18 @@ spring:
       config:
         server-addr: localhost:8848
         file-extension: yaml
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+#暴露actuator端点
 management:
   endpoints:
     web:
       exposure:
         include=*:
+logging:
+  level:
+    com.alex.user.feign: debug
+feign:
+  sentinel:
+    enabled: true

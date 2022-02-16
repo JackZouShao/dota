@@ -9,13 +9,20 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 192.168.123.103:8848
       config:
-        server-addr: localhost:8848
+        server-addr: 192.168.123.103:8848
         file-extension: yaml
     sentinel:
       transport:
         dashboard: localhost:8080
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    password:
 feign:
   sentinel:
     enabled: true
@@ -24,3 +31,11 @@ wechat:
   appSecret: aa5b13b9949f2b398a6ada37d6ba76e9
 dota:
   url: https://dota.vlgcty.com/
+  swagger:
+    title: dota API
+    description: 分布式系统
+    name: dota API 分布式系统
+    url: www.google.com
+    version: 1.1.0
+    packages:
+      - com.alex.auth.controller

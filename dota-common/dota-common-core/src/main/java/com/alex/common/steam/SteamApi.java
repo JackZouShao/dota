@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Steam API Interface
+ */
 public class SteamApi {
 
     public static void main(String[] args) throws UnsupportedEncodingException {

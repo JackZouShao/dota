@@ -1,7 +1,3 @@
-info:
-  server:
-    host: localhost
-    port: 5761
 server:
   port: 8079
 #config service
@@ -17,6 +13,10 @@ spring:
       config:
         server-addr: localhost:8848
         file-extension: yaml
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
     gateway:
       routes:
         - id: dota-auth-service
@@ -39,4 +39,18 @@ spring:
             - StripPrefix=1
       loadbalancer:
         use404: true
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: 'http://localhost:8083/rsa/publicKey'
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    password:
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/actuator/**"
+      - "/auth/oauth/token"

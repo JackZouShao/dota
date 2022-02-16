@@ -1,16 +1,17 @@
-package com.alex.user.feign.vo;
+package com.alex.user.feign.interfaces.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Accessors(chain = true)
 @ApiModel(value = "UserVo", description = "UserVo1")
 public class UserVo {
+
     private static final long serialVersionUID = 1L;
 
     /**
@@ -32,11 +33,11 @@ public class UserVo {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private LocalDateTime createTime;
     /**
      * 修改时间
      */
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
     /**
      * 状态(1:正常，0:禁用)
@@ -97,4 +98,5 @@ public class UserVo {
      * 创建时间，展示用 ex: 2016年10月
      */
     private String createAt;
+
     }

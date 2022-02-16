@@ -8,5 +8,13 @@ spring:
     timeout: 3s
   redisson:
     mode: singleServer # singleServer cluster sentinel
-
+dota:
+  swagger:
+    title: dota API
+    description: 分布式系统
+    name: dota API 分布式系统
+    url: www.google.com
+    version: 1.1.0
+    packages:
+      - com.alex.order.controller
 

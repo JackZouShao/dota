@@ -28,6 +28,7 @@ public class SteamController {
 	@RequestMapping(value = "/token", method = RequestMethod.GET)
 	public RJson<String> getLoginUrl()  {
 		String token;
+
 		try {
 			token = SteamApi.getUrl(domain);
 		} catch (UnsupportedEncodingException e) {

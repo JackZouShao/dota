@@ -3,18 +3,20 @@ package com.alex.user.feign.interfaces;
 import com.alex.common.util.RJson;
 import com.alex.user.feign.interfaces.fallback.IFeignDotaUserFallBackFactory;
 import com.alex.user.feign.interfaces.fallback.IFeignDotaUserFallback;
-import com.alex.user.feign.qo.UserQO;
-import com.alex.user.feign.vo.UserVo;
+import com.alex.user.feign.interfaces.vo.qo.UserQO;
+import com.alex.user.feign.interfaces.vo.UserVo;
 import io.swagger.annotations.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
+ * fallbackFactory = IFeignDotaUserFallBackFactory.class,
+ * FallBack 和 FallBackFactory， FallBack 优先
  * user interface
  * for basic function
  */
 @Api(tags = "用户模块FeignApi")
-@FeignClient(value = "dota-user-service", fallbackFactory = IFeignDotaUserFallBackFactory.class, fallback = IFeignDotaUserFallback.class)
+@FeignClient(value = "dota-user-service", fallback = IFeignDotaUserFallback.class, fallbackFactory = IFeignDotaUserFallBackFactory.class, configuration = FeignConfig.class)
 public interface IFeignDotaUser {
 
     @ApiOperation(value = "根据WeChatToken当前登录用户")

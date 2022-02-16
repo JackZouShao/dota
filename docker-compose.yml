@@ -1,0 +1,21 @@
+version: "3.0" # compose 版本
+services:
+  dota-auth:
+    environment:
+      RUN_ARGS: '--spring.profiles.active=dev --server.port=8083'
+    build:
+      context: ./dota-auth # 上下文 对应的文件的位置
+      args:
+        JAVA_OPTS: '-Xmx512M -Xmn256M'
+        # 会替换Dockerfile 中的对应变量
+        RUN_ARGS: '--spring.profiles.active=dev111 --server.port=8081'
+    image: dota-auth1
+    container_name: dota-auth1
+    restart: always
+    networks:
+      - dota
+    ports:
+      - "8084:8084"
+networks:
+  dota:
+    driver: bridge

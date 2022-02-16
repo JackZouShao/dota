@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.Stack;
 
 public class PrestoTest {
 
@@ -15,5 +16,7 @@ public class PrestoTest {
 		properties.setProperty("password", "secret");
 		properties.setProperty("SSL", "true");
 		Connection connection = DriverManager.getConnection(url, properties);
+		Stack<Integer> stack = new Stack<>();
 	}
 }
+

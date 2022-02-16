@@ -5,7 +5,7 @@ spring:
   application:
     name: dota-user-service
   profiles:
-    active: prod
+    active: dev
 
 # 不同环境启用不同的配置 并且将每个项目的私有配置放在nacos上
 # 根据 ${prefix}-${spring.profiles.active}.${file-extension} 中的-${spring.profiles.active}
@@ -20,8 +20,15 @@ spring:
       config: # config设置必须明码 不能使用 ${}引用形式
         server-addr: localhost:8848
         file-extension: yaml
-nack: ${dota.nacos.config.server}
-
+dota:
+  swagger:
+    title: dota API
+    description: 分布式系统 测试环境
+    name: dota API 分布式系统 测试环境
+    url: www.google.com
+    version: 1.1.0
+    packages:
+      - com.alex.user.controller
 
 ---
 spring:
@@ -29,10 +36,36 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${dota.nacos.discovery.server}
+        server-addr: localhost:8848
       config:
         server-addr: localhost:8848
         file-extension: yaml
-
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        linger.ms: 1
+    consumer:
+      enable-auto-commit: false
+      auto-commit-interval: 100ms
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        session.timeout.ms: 15000
+      group-id: g1
+dota:
+  swagger:
+    title: dota API
+    description: 分布式系统 生产环境
+    name: dota API 分布式系统 生产环境
+    url: www.google.com
+    version: 1.1.0
+    packages:
+      - com.alex.user.controller
 
 
