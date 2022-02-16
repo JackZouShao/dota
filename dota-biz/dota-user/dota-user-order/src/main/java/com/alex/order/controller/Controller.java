@@ -1,7 +1,6 @@
 package com.alex.order.controller;
 
 import com.alex.common.util.RJson;
-import com.alex.order.DemoService;
 import com.alex.redis.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,11 +27,11 @@ public class Controller {
     private RedisUtils redisUtils;
 
     @Resource
-    private DemoService demoService;
+    private com.alex.order.service.DemoService demoService;
 
     @ApiOperation("测试feign")
     @GetMapping("/get")
-    public RJson<Person> order(){
+    public RJson<com.alex.user.feign.interfaces.vo.Person> order(){
 //        redisUtils.set("p:s", new Person("susan", 12));
         return RJson.ok(demoService.getPerson()) ;
     }

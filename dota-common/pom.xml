@@ -11,6 +11,7 @@
         <module>dota-config-center</module>
         <module>dota-kafka-spring-boot-starter</module>
         <module>dota-util</module>
+        <module>dota-swagger-spring-boot-starter</module>
 
     </modules>
     <parent>
