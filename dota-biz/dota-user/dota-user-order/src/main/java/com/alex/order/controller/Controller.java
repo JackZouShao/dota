@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
 
 @Api("订单")
 @RestController
@@ -32,7 +35,6 @@ public class Controller {
     @ApiOperation("测试feign")
     @GetMapping("/get")
     public RJson<com.alex.user.feign.interfaces.vo.Person> order(){
-//        redisUtils.set("p:s", new Person("susan", 12));
         return RJson.ok(demoService.getPerson()) ;
     }
 }
