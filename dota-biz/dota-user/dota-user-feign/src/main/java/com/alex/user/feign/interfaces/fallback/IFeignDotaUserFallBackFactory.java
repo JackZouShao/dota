@@ -1,6 +1,6 @@
 package com.alex.user.feign.interfaces.fallback;
 
-import com.alex.common.util.RJson;
+import com.alex.common.util.R;
 import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.interfaces.vo.qo.UserQO;
 import com.alex.user.feign.interfaces.vo.UserVo;
@@ -15,33 +15,33 @@ public class IFeignDotaUserFallBackFactory implements FallbackFactory<IFeignDota
     public IFeignDotaUser create(Throwable throwable) {
         return new IFeignDotaUser() {
             @Override
-            public RJson<UserVo> loginByWechatToken(String token) {
-                return RJson.failed("FallbackFactory");
+            public R<UserVo> loginByWechatToken(String token) {
+                return R.failed("FallbackFactory");
             }
 
             @Override
-            public RJson<UserVo> loginBySteamToken(String token) {
+            public R<UserVo> loginBySteamToken(String token) {
                 return null;
             }
 
             @Override
-            public RJson<UserVo> updateById(UserQO qo) {
+            public R<UserVo> updateById(UserQO qo) {
                 return null;
             }
 
             @Override
-            public RJson<String> deleteById(Long id) {
+            public R<String> deleteById(Long id) {
                 return null;
             }
 
             @Override
-            public RJson<UserVo> getByUserNo(Long userNo) {
+            public R<UserVo> getByUserNo(Long userNo) {
                 log.error("error getByUserNo");
-                return RJson.failed("getuserinfo  失败测试");
+                return R.failed("getuserinfo  失败测试");
             }
 
             @Override
-            public RJson<UserVo> getByMobile(String mobile) {
+            public R<UserVo> getByMobile(String mobile) {
                 return null;
             }
         };

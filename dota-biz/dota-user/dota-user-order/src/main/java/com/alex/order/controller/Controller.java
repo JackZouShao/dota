@@ -1,6 +1,6 @@
 package com.alex.order.controller;
 
-import com.alex.common.util.RJson;
+import com.alex.common.util.R;
 import com.alex.redis.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
 
 @Api("订单")
 @RestController
@@ -34,8 +31,8 @@ public class Controller {
 
     @ApiOperation("测试feign")
     @GetMapping("/get")
-    public RJson<com.alex.user.feign.interfaces.vo.Person> order(){
-        return RJson.ok(demoService.getPerson()) ;
+    public R<com.alex.user.feign.interfaces.vo.Person> order(){
+        return R.ok(demoService.getPerson()) ;
     }
 }
 

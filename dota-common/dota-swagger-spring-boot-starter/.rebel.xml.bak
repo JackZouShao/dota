@@ -6,10 +6,10 @@
 -->
 <application generated-by="intellij" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_3.xsd">
 
-	<id>dota-cache-spring-boot-starter</id>
+	<id>dota-swagger-spring-boot-starter</id>
 
 	<classpath>
-		<dir name="D:/IDEAWorkSpaec/dota/dota-common/dota-cache-spring-boot-starter/target/classes">
+		<dir name="/Users/yz/IdeaProjects/gitee-projects/dota/dota-common/dota-swagger-spring-boot-starter/target/classes">
 		</dir>
 	</classpath>
 

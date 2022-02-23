@@ -7,6 +7,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 
 @SpringCloudApplication
 @EnableFeignClients

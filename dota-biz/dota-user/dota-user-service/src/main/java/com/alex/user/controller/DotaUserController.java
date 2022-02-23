@@ -1,13 +1,10 @@
 package com.alex.user.controller;
 
-import com.alex.common.util.RJson;
+import com.alex.common.util.R;
 import com.alex.user.feign.interfaces.IFeignDotaUser;
 import com.alex.user.feign.interfaces.vo.qo.UserQO;
 import com.alex.user.feign.interfaces.vo.UserVo;
 import com.alibaba.csp.sentinel.Entry;
-import com.alibaba.csp.sentinel.SphU;
-import com.alibaba.csp.sentinel.Tracer;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 用户服务
@@ -32,28 +28,28 @@ public class DotaUserController implements IFeignDotaUser{
     private final RedissonClient redissonClient;
 
     @Override
-    public RJson<UserVo> loginByWechatToken(String token) {
-        return RJson.ok(new UserVo().setWechatToken("123"));
+    public R<UserVo> loginByWechatToken(String token) {
+        return R.ok(new UserVo().setWechatToken("123"));
     }
 
     @Override
-    public RJson<UserVo> loginBySteamToken(String token) {
+    public R<UserVo> loginBySteamToken(String token) {
         return null;
     }
 
     @Override
-    public RJson<UserVo> updateById(UserQO qo) {
+    public R<UserVo> updateById(UserQO qo) {
         return null;
     }
 
     @Override
-    public RJson<String> deleteById(Long id) {
+    public R<String> deleteById(Long id) {
         return null;
     }
     private static final String RESOURCE_NAME = "hello";
 
     @Override
-    public RJson<UserVo> getByUserNo(Long userNo) {
+    public R<UserVo> getByUserNo(Long userNo) {
         log.info("查询 user info");
         Entry entry = null;
 //        try {
@@ -72,11 +68,11 @@ public class DotaUserController implements IFeignDotaUser{
 //            }
 //        }
         int i = 1/0;
-        return RJson.ok(new UserVo().setUserNo(123l));
+        return R.ok(new UserVo().setUserNo(123l));
     }
 
     @Override
-    public RJson<UserVo> getByMobile(String mobile) {
+    public R<UserVo> getByMobile(String mobile) {
         return null;
     }
 

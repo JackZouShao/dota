@@ -1,7 +1,7 @@
 package com.alex.auth.controller;
 
 
-import com.alex.common.util.RJson;
+import com.alex.common.util.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +26,8 @@ public class WechatController {
 
     @ApiOperation("获取微信token")
     @RequestMapping(value = "/token", method = RequestMethod.GET)
-    public RJson<Token> getToken(){
+    public R<Token> getToken(){
         Token token = TokenAPI.token(appId, appSecret);
-        return RJson.ok(token);
+        return R.ok(token);
     }
 }

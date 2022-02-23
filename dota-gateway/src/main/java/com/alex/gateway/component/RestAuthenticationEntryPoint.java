@@ -1,7 +1,7 @@
 package com.alex.gateway.component;
 
 import cn.hutool.json.JSONUtil;
-import com.alex.common.util.RJson;
+import com.alex.common.util.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
@@ -34,7 +34,7 @@ public class RestAuthenticationEntryPoint implements ServerAuthenticationEntryPo
         ServerHttpResponse response = serverWebExchange.getResponse();
         response.setStatusCode(HttpStatus.OK);
         response.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-        String body = JSONUtil.toJsonStr(RJson.failed(e.getMessage()));
+        String body = JSONUtil.toJsonStr(R.failed(e.getMessage()));
         DataBuffer buffer = response.bufferFactory().wrap(body.getBytes(StandardCharsets.UTF_8));
         return response.writeWith(Mono.just(buffer));
     }

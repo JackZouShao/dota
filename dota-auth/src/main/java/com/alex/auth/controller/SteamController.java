@@ -2,7 +2,7 @@ package com.alex.auth.controller;
 
 import com.alex.common.exceptions.BusinessException;
 import com.alex.common.steam.SteamApi;
-import com.alex.common.util.RJson;
+import com.alex.common.util.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class SteamController {
 
 	@ApiOperation("获取steam token")
 	@RequestMapping(value = "/token", method = RequestMethod.GET)
-	public RJson<String> getLoginUrl()  {
+	public R<String> getLoginUrl()  {
 		String token;
 
 		try {
@@ -36,6 +36,6 @@ public class SteamController {
 			log.error("获取 steam token 错误");
 			throw new BusinessException("获取 steam token 错误");
 		}
-		return RJson.ok(token);
+		return R.ok(token);
 	}
 }
