@@ -17,12 +17,11 @@ import java.util.TreeMap;
  * 资源与角色匹配关系管理业务类
  * Created by macro on 2020/6/19.
  */
-//@Service
+@Service
 @RequiredArgsConstructor
 public class ResourceServiceImpl {
 
     private Map<String, List<String>> resourceRolesMap;
-
 
     private final RedisTemplate<String,Object> redisTemplate;
 

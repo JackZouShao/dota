@@ -37,9 +37,9 @@ import java.util.List;
  * @date: 2022/1/23 23:45
  */
 @RequiredArgsConstructor
-//@EnableAuthorizationServer
-//@Configuration
-public class Oauth2ServerConfi extends AuthorizationServerConfigurerAdapter {
+@EnableAuthorizationServer
+@Configuration
+public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
     private final UserServiceImpl userService;

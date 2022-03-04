@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * Security配置中心
  * 1. 配置Spring Security，允许获取公钥接口的访问；
  */
-//@Configuration
+@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
