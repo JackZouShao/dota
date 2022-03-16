@@ -42,9 +42,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alex</groupId>
-            <artifactId>dota-swagger-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>2.0.8</version>
         </dependency>
 
         <dependency>

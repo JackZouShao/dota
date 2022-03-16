@@ -3,7 +3,8 @@ package com.alex.common;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.jetbrains.annotations.NotNull;
+
+import javax.validation.constraints.NotNull;
 
 @Data
 @Accessors(chain = true)

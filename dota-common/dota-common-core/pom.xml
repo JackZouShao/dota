@@ -26,6 +26,7 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.8</version>
         </dependency>
 
         <!--MyBatisPlus代码生成器-->
@@ -48,8 +49,6 @@
             <version>${org.freemarker.version}</version>
         </dependency>
 
-
-
         <!-- 提供mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -63,16 +62,15 @@
             <scope>compile</scope>
         </dependency>
 
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
 
-        <!-- swagger -->
         <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.24</version>
         </dependency>
 
         <dependency>

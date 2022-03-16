@@ -8,6 +8,7 @@ import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
@@ -20,6 +21,8 @@ import java.util.List;
 /**
  * 用户服务
  */
+
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -52,21 +55,6 @@ public class DotaUserController implements IFeignDotaUser{
     public R<UserVo> getByUserNo(Long userNo) {
         log.info("查询 user info");
         Entry entry = null;
-//        try {
-//            entry = SphU.entry(RESOURCE_NAME);
-//            return RJson.ok(new UserVo().setUserNo(123l));
-//        } catch (BlockException e) {
-//            System.out.println("1231312");
-//            e.printStackTrace();
-//        } catch (Exception ex){
-//            System.out.println("xxx");
-//
-//            Tracer.traceEntry(ex, entry);
-//        } finally {
-//            if(entry != null){
-//                entry.exit();
-//            }
-//        }
         int i = 1/0;
         return R.ok(new UserVo().setUserNo(123l));
     }

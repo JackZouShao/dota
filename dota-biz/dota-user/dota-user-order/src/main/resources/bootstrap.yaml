@@ -4,7 +4,7 @@ spring:
   application:
     name: dota-user-order
   profiles:
-    active: dev, core
+    active: dev
   cloud:
     nacos:
       discovery:
