@@ -2,13 +2,18 @@ package com.alex;
 
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.io.Serializable;
 
-@SpringCloudApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
+@EnableCircuitBreaker
 public class DotaAuthApplication implements Serializable {
 
     public static void main(String[] args) {

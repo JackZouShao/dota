@@ -12,6 +12,9 @@ import java.util.Map;
 
 /**
  * JWT内容增强器
+ * 扩展
+ * JWT
+ * 中的存储内容
  * @version 1.0.0
  * @className JwtTokenEnhancer.java
  * @author: yz
@@ -25,6 +28,7 @@ public class JwtTokenEnhancer implements TokenEnhancer {
      */
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
+        // 获取当前用户 并把用户id 存入jwt
         SecurityUser securityUser = (SecurityUser) oAuth2Authentication.getPrincipal();
         Map<String,Object> info = new HashMap<>();
         info.put("id", securityUser.getId());

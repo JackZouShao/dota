@@ -12,7 +12,7 @@ import org.springframework.web.util.pattern.PathPatternParser;
 /**
  * 跨域配置
  */
-//@Configuration
+@Configuration
 public class CorsConfig {
 
     private static final String ALL = "*";

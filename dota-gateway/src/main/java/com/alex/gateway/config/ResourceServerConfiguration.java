@@ -29,8 +29,8 @@ import reactor.core.publisher.Mono;
  * @author: yz
  * @date: 2022/1/23 22:32
  */
-@Configuration
-@EnableWebFluxSecurity
+//@Configuration
+//@EnableWebFluxSecurity
 @RequiredArgsConstructor
 public class ResourceServerConfiguration {
 

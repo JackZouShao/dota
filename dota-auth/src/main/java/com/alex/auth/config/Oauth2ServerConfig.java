@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 配置授权服务器
  *  Oauth2  AuthorizationServer 配置，服务提供商专门用来处理认证授权的服务器。
  *  Oauth2 有四种角色
  * （1）Third-party application：第三方应用程序，又称"客户端"（client），即例子中的"云冲印"。
@@ -70,7 +71,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         delegates.add(jwtTokenEnhancer);
         delegates.add(accessTokenConverter());
         enhancerChain.setTokenEnhancers(delegates);
-        endpoints.authenticationManager(authenticationManager)
+        endpoints.authenticationManager(authenticationManager)// 使用密码模式需要配置
                 .userDetailsService(userService)
                 .accessTokenConverter(accessTokenConverter())
                 .tokenEnhancer(enhancerChain);

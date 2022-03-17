@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import weixin.popular.api.TokenAPI;
-import weixin.popular.bean.token.Token;
 
 @Api(tags = "Wechat 第三方登录相关处理类")
 @RestController
@@ -24,10 +22,4 @@ public class WechatController {
     @Value("${wechat.appSecret}")
     private String appSecret;
 
-    @ApiOperation("获取微信token")
-    @RequestMapping(value = "/token", method = RequestMethod.GET)
-    public R<Token> getToken(){
-        Token token = TokenAPI.token(appId, appSecret);
-        return R.ok(token);
-    }
 }
