@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Security配置中心
+ * auth也要配置Spring Security
  * 1. 配置Spring Security，允许获取公钥接口的访问；
  */
 @Configuration

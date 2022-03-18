@@ -22,15 +22,16 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import reactor.core.publisher.Mono;
 
 /**
- * 网关资源配置
+ * OAuth资源配置
+ * 资源服务器，即服务提供商存放用户生成的资源的服务器。它与授权服务器，可以 是同一台服务器，也可以是不同的服务器
  * 对网关服务进行配置安全配置，由于Gateway使用的是WebFlux，所以需要使用@EnableWebFluxSecurity注解开启；
  * @version 1.0.0
  * @className ResourceServerConfiguration.java
  * @author: yz
  * @date: 2022/1/23 22:32
  */
-//@Configuration
-//@EnableWebFluxSecurity
+@Configuration
+@EnableWebFluxSecurity
 @RequiredArgsConstructor
 public class ResourceServerConfiguration {
 
@@ -44,7 +45,8 @@ public class ResourceServerConfiguration {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http){
         // Configures the Converter to use for converting a Jwt into an AbstractAuthenticationToken
         http.oauth2ResourceServer().jwt()
-                .jwtAuthenticationConverter(jwtAuthenticationConverter());
+                .jwtAuthenticationConverter(jwtAuthenticationConverter())
+                .jwkSetUri("http://localhost:8083/rsa/publicKey");
 
         // 自定义处理JWT请求头过期或签名错误的结果
         http.oauth2ResourceServer().authenticationEntryPoint(restAuthenticationEntryPoint);

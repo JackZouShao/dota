@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 配置授权服务器
+ *  配置授权服务器
  *  Oauth2  AuthorizationServer 配置，服务提供商专门用来处理认证授权的服务器。
  *  Oauth2 有四种角色
  * （1）Third-party application：第三方应用程序，又称"客户端"（client），即例子中的"云冲印"。
@@ -48,6 +48,10 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     private final JwtTokenEnhancer jwtTokenEnhancer;
 
 
+    /**
+     * OAuth2客户端
+     * Third-party application：第三方应用程序，又称"客户端"（client），即例子中的"第三方应用"。
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
@@ -64,6 +68,10 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         security.allowFormAuthenticationForClients();
     }
 
+    /**
+     * 授权服务器，即服务提供商专门用来处理认证授权的服务器。
+     * 配置授权（authorization）以及令牌（token）的访问端点和令牌服务(token services)
+     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
@@ -78,6 +86,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     }
 
+    /**
+     * 使用非对称加密算法对token签名
+     */
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
@@ -85,6 +96,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         return jwtAccessTokenConverter;
     }
 
+    /**
+     * 密钥库中获取密钥对(公钥+私钥)
+     */
     @Bean
     public KeyPair keyPair(){
         KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "5545125".toCharArray());

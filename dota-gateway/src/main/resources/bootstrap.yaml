@@ -39,11 +39,11 @@ spring:
             - StripPrefix=1
       loadbalancer:
         use404: true
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: 'http://localhost:8083/rsa/publicKey'
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: 'http://localhost:8083/rsa/publicKey'
   redis:
     database: 0
     port: 6379

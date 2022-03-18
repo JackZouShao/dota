@@ -50,7 +50,6 @@ public class CacheConfiguration {
             @Qualifier("cacheGetOperation") CacheOperation cacheGetOperation,
             @Qualifier("cacheInvalidateOperation") CacheOperation cacheInvalidateOperation,
             @Qualifier("cachePutOperation") CacheOperation cachePutOperation){
-
         return new CacheOperationAop(cachePutOperation, cacheInvalidateOperation, cacheGetOperation);
     }
 }

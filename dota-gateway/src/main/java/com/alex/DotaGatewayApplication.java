@@ -13,6 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class DotaGatewayApplication  {
 
     public static void main(String[] args) throws InterruptedException {
-        ConfigurableApplicationContext context = SpringApplication.run(DotaGatewayApplication.class, args);
+        SpringApplication.run(DotaGatewayApplication.class, args);
     }
 }
