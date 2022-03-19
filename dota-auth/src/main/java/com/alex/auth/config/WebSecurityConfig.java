@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .requestMatchers(EndpointRequest.toAnyEndpoint()).permitAll()
-                .antMatchers("/rsa/**").permitAll()
+                .antMatchers("/rsa/**", "/oauth/**").permitAll()
                 .anyRequest().authenticated();
         http.csrf().disable();
     }

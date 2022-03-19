@@ -6,6 +6,8 @@ import com.alex.common.constants.RedisConstant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.authorization.ReactiveAuthorizationManager;
 import org.springframework.security.core.Authentication;
@@ -36,7 +38,10 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
     @Override
     public Mono<AuthorizationDecision> check(Mono<Authentication> mono, AuthorizationContext authorizationContext) {
         log.warn("鉴权管理器，用于判断是否有资源的访问权限");
-
+        ServerHttpRequest request = authorizationContext.getExchange().getRequest();
+        if (request.getMethod() == HttpMethod.OPTIONS) {
+            return Mono.just(new AuthorizationDecision(true));
+        }
         // Redis 中获取角色列表
         URI uri = authorizationContext.getExchange().getRequest().getURI();
         Object obj = redisTemplate.opsForHash().get(RedisConstant.RESOURCE_ROLES_MAP, uri.getPath());
@@ -45,12 +50,14 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
                 .map(i -> i = AuthConstant.AUTHORITY_PREFIX + i).collect(Collectors.toList());
 
         //认证通过且角色匹配的用户可访问当前路径
-        return mono
-                .filter(Authentication::isAuthenticated)
-                .flatMapIterable(Authentication::getAuthorities)
-                .map(GrantedAuthority::getAuthority)
-                .any(authorities::contains)
-                .map(AuthorizationDecision::new)
-                .defaultIfEmpty(new AuthorizationDecision(false));
+//        return mono
+////                .filter(Authentication::isAuthenticated)
+////                .flatMapIterable(Authentication::getAuthorities)
+////                .map(GrantedAuthority::getAuthority)
+//////                .any(authorities::contains)
+////                .any((e)->true)
+////                .map(AuthorizationDecision::new)
+////                .defaultIfEmpty(new AuthorizationDecision(false));
+        return Mono.just(new AuthorizationDecision(true));
     }
 }

@@ -45,8 +45,7 @@ public class ResourceServerConfiguration {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http){
         // Configures the Converter to use for converting a Jwt into an AbstractAuthenticationToken
         http.oauth2ResourceServer().jwt()
-                .jwtAuthenticationConverter(jwtAuthenticationConverter())
-                .jwkSetUri("http://localhost:8083/rsa/publicKey");
+                .jwtAuthenticationConverter(jwtAuthenticationConverter());
 
         // 自定义处理JWT请求头过期或签名错误的结果
         http.oauth2ResourceServer().authenticationEntryPoint(restAuthenticationEntryPoint);
@@ -55,14 +54,21 @@ public class ResourceServerConfiguration {
         http.authorizeExchange()
                 .pathMatchers(ArrayUtil.toArray(ignoreUrlsConfig.getUrls(), String.class)).permitAll() // 白名单配置
                 .anyExchange().access(authorizationManager)//鉴权管理器配置
-                .and().exceptionHandling()
+                .and()
+                .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler) // 处理未授权
                 .authenticationEntryPoint(restAuthenticationEntryPoint) // 处理未认证
                 .and().csrf().disable();
         return http.build();
 
     }
-
+    /**
+     * @return
+     * @link https://blog.csdn.net/qq_24230139/article/details/105091273
+     * ServerHttpSecurity没有将jwt中authorities的负载部分当做Authentication
+     * 需要把jwt的Claim中的authorities加入
+     * 方案：重新定义权限管理器，默认转换器JwtGrantedAuthoritiesConverter
+     */
     @Bean
     public Converter<Jwt, ? extends Mono<? extends AbstractAuthenticationToken>> jwtAuthenticationConverter(){
 

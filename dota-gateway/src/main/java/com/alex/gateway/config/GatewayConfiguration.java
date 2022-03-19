@@ -39,7 +39,7 @@ import java.util.Set;
  * @author: yz
  * @date: 2021/9/21 16:32
  */
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class GatewayConfiguration {
 
@@ -64,11 +64,11 @@ public class GatewayConfiguration {
     @PostConstruct
     public void doInit(){
         //初始化自定义的API
-        initCustomizedApis();
-        //初始化网关限流规则
-        initGatewayRules();
-        //自定义限流异常处理器
-        initBlockRequestHandler();
+//        initCustomizedApis();
+//        //初始化网关限流规则
+//        initGatewayRules();
+//        //自定义限流异常处理器
+//        initBlockRequestHandler();
     }
 
 

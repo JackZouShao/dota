@@ -3,6 +3,7 @@ package com.alex.auth.controller;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jwt.JWT;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ public class KeyPairController {
 
     private final KeyPair keyPair;
 
+    @ApiOperation(value = "获取公钥", notes = "login")
     @GetMapping("/rsa/publicKey")
     public Map<String, Object> getKey(){
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();

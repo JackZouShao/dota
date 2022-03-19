@@ -55,7 +55,6 @@ public class DotaUserController implements IFeignDotaUser{
     public R<UserVo> getByUserNo(Long userNo) {
         log.info("查询 user info");
         Entry entry = null;
-        int i = 1/0;
         return R.ok(new UserVo().setUserNo(123l));
     }
 
